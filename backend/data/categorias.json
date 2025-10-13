@@ -1,0 +1,13 @@
+{
+  "categorias": [
+    {
+      "id": 1,
+      "nombre": "zapatillas"
+    },
+    {
+      "id": 2,
+      "nombre": "bolsos"
+    }
+  ],
+  "counter": 3
+}

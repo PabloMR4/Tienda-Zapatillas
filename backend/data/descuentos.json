@@ -1,0 +1,18 @@
+{
+  "descuentos": [
+    {
+      "id": 1,
+      "nombre": "Descuento Hallowen",
+      "porcentaje": 25,
+      "tipo": "general",
+      "aplicaA": null,
+      "fechaInicio": "2025-10-10T15:00",
+      "fechaFin": "2025-10-31T00:00",
+      "activo": true,
+      "codigo": "Hallowen25",
+      "vecesUsado": 1,
+      "creadoEn": "2025-10-12T22:50:39.566Z"
+    }
+  ],
+  "counter": 2
+}
