@@ -2704,6 +2704,81 @@ app.post('/api/marketing/registrar-compartir', requireAuth, async (req, res) => 
   }
 });
 
+// Endpoint para publicar en Instagram
+app.post('/api/instagram/publicar', requireAuth, async (req, res) => {
+  try {
+    const { producto, texto, imagenUrl } = req.body;
+
+    if (!producto || !texto || !imagenUrl) {
+      return res.status(400).json({ error: 'Faltan datos necesarios para la publicación' });
+    }
+
+    // Verificar que las credenciales de Instagram estén configuradas
+    const instagramAccessToken = process.env.INSTAGRAM_ACCESS_TOKEN;
+    const instagramAccountId = process.env.INSTAGRAM_ACCOUNT_ID;
+
+    if (!instagramAccessToken || !instagramAccountId) {
+      return res.status(500).json({
+        error: 'Instagram no está configurado',
+        detalles: 'Configura INSTAGRAM_ACCESS_TOKEN e INSTAGRAM_ACCOUNT_ID en el archivo .env'
+      });
+    }
+
+    console.log(`📷 Publicando en Instagram: ${producto.nombre}`);
+
+    // Paso 1: Crear el contenedor de medios
+    const crearContenedorResponse = await axios.post(
+      `https://graph.facebook.com/v18.0/${instagramAccountId}/media`,
+      {
+        image_url: imagenUrl,
+        caption: texto,
+        access_token: instagramAccessToken
+      }
+    );
+
+    const mediaId = crearContenedorResponse.data.id;
+
+    if (!mediaId) {
+      throw new Error('No se pudo crear el contenedor de medios');
+    }
+
+    // Paso 2: Publicar el contenedor
+    const publicarResponse = await axios.post(
+      `https://graph.facebook.com/v18.0/${instagramAccountId}/media_publish`,
+      {
+        creation_id: mediaId,
+        access_token: instagramAccessToken
+      }
+    );
+
+    const postId = publicarResponse.data.id;
+
+    console.log(`✅ Publicación exitosa en Instagram. Post ID: ${postId}`);
+
+    res.json({
+      success: true,
+      postId: postId,
+      mensaje: 'Publicación exitosa en Instagram'
+    });
+
+  } catch (error) {
+    console.error('❌ Error publicando en Instagram:', error.response?.data || error.message);
+
+    let errorMsg = 'Error al publicar en Instagram';
+
+    if (error.response?.data?.error?.message) {
+      errorMsg = error.response.data.error.message;
+    } else if (error.message) {
+      errorMsg = error.message;
+    }
+
+    res.status(500).json({
+      error: errorMsg,
+      detalles: error.response?.data?.error || {}
+    });
+  }
+});
+
 // ==================== FIN ENDPOINTS DE MARKETING ====================
 
 // Endpoint de prueba para enviar correo (TEMPORAL - eliminar en producción)

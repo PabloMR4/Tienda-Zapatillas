@@ -1412,11 +1412,28 @@
                 <textarea id="rrssTexto" class="form-control" rows="5" placeholder="Escribe el texto para la publicación..."></textarea>
             </div>
             <div class="form-group">
-                <label>Selecciona la red social</label>
-                <div style="display: flex; gap: 10px;">
-                    <button type="button" class="rrss-btn instagram" style="flex: 1;" onclick="compartirEnRRSS('instagram')">
-                        📷 Instagram
+                <label>Publicar directamente en Instagram</label>
+                <div style="background: linear-gradient(135deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); padding: 20px; border-radius: 10px; margin-bottom: 15px;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                        <div style="background: white; padding: 10px; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                            <span style="font-size: 2em;">📷</span>
+                        </div>
+                        <div style="color: white;">
+                            <h3 style="margin: 0 0 5px 0; font-size: 1.1em;">Publicar automáticamente</h3>
+                            <p style="margin: 0; font-size: 0.9em; opacity: 0.9;">La publicación se hará directamente en tu cuenta de Instagram Business</p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-primary" style="width: 100%; background: white; color: #bc1888; font-weight: bold; border: none; padding: 12px;" onclick="publicarEnInstagram()">
+                        📷 Publicar en Instagram
                     </button>
+                    <div id="instagram-status" style="margin-top: 10px; padding: 10px; background: rgba(255,255,255,0.2); border-radius: 5px; color: white; font-size: 0.85em; display: none;">
+                        <!-- Estado de la publicación -->
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>O compartir manualmente en otras redes</label>
+                <div style="display: flex; gap: 10px;">
                     <button type="button" class="rrss-btn facebook" style="flex: 1;" onclick="compartirEnRRSS('facebook')">
                         👍 Facebook
                     </button>
@@ -5229,22 +5246,51 @@
             productoActualRRSS = null;
         }
 
+        // Publicar directamente en Instagram
+        async function publicarEnInstagram() {
+            const texto = document.getElementById('rrssTexto').value;
+            const imagen = productoActualRRSS.variantes?.[0]?.imagenes?.[0] || productoActualRRSS.imagenes?.[0] || productoActualRRSS.imagen;
+
+            const statusDiv = document.getElementById('instagram-status');
+            statusDiv.style.display = 'block';
+            statusDiv.innerHTML = '⏳ Publicando en Instagram...';
+
+            try {
+                const response = await fetch('/api/instagram/publicar', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include',
+                    body: JSON.stringify({
+                        producto: productoActualRRSS,
+                        texto: texto,
+                        imagenUrl: imagen
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    statusDiv.innerHTML = '✅ ¡Publicado exitosamente en Instagram!';
+                    setTimeout(() => {
+                        cerrarModalRRSS();
+                    }, 2000);
+                } else {
+                    throw new Error(data.error || 'Error al publicar');
+                }
+            } catch (error) {
+                console.error('Error publicando en Instagram:', error);
+                statusDiv.innerHTML = `❌ Error: ${error.message}<br><small>Verifica la configuración de Instagram en el archivo .env</small>`;
+            }
+        }
+
         // Compartir en redes sociales
         function compartirEnRRSS(redSocial) {
             const texto = document.getElementById('rrssTexto').value;
             const productoUrl = `https://shoelandia.es/producto/${productoActualRRSS.id}`;
-            const imagen = productoActualRRSS.variantes?.[0]?.imagenes?.[0] || productoActualRRSS.imagenes?.[0] || productoActualRRSS.imagen;
 
             let url = '';
 
             switch(redSocial) {
-                case 'instagram':
-                    // Instagram no permite compartir directamente via URL, mostramos instrucciones
-                    alert('Para compartir en Instagram:\n\n1. Descarga la imagen del producto\n2. Abre Instagram\n3. Crea una nueva publicación\n4. Copia y pega el texto:\n\n' + texto);
-                    // Abrir la imagen en nueva pestaña para descargar
-                    window.open(imagen, '_blank');
-                    break;
-
                 case 'facebook':
                     url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(productoUrl)}&quote=${encodeURIComponent(texto)}`;
                     window.open(url, '_blank', 'width=600,height=400');
