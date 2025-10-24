@@ -1,14 +1,31 @@
 import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import ProductGrid from './components/ProductGrid';
+import Home from './components/Home';
+import CategoryPage from './components/CategoryPage';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
+import Footer from './components/Footer';
+import HalloweenDecorations from './components/HalloweenDecorations';
+import Login from './components/Login';
+import Register from './components/Register';
+import UserProfile from './components/UserProfile';
+import Contact from './components/Contact';
+import AdminDescuentos from './components/AdminDescuentos';
+import AdminAnalytics from './components/AdminAnalytics';
 import { useCart } from './context/CartContext';
+import { useAuth } from './context/AuthContext';
 
 function App() {
   const [showCheckout, setShowCheckout] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+  const [showRegister, setShowRegister] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
+  const [showContact, setShowContact] = useState(false);
+  const [showAdminDescuentos, setShowAdminDescuentos] = useState(false);
+  const [showAdminAnalytics, setShowAdminAnalytics] = useState(false);
   const { setIsCartOpen } = useCart();
+  const { isAuthenticated } = useAuth();
 
   const handleCheckout = () => {
     setIsCartOpen(false);
@@ -19,42 +36,87 @@ function App() {
     setShowCheckout(false);
   };
 
+  const handleOpenLogin = () => {
+    setShowLogin(true);
+    setShowRegister(false);
+    setShowProfile(false);
+  };
+
+  const handleOpenRegister = () => {
+    setShowRegister(true);
+    setShowLogin(false);
+    setShowProfile(false);
+  };
+
+  const handleOpenProfile = () => {
+    setShowProfile(true);
+    setShowLogin(false);
+    setShowRegister(false);
+  };
+
+  const handleCloseAuth = () => {
+    setShowLogin(false);
+    setShowRegister(false);
+    setShowProfile(false);
+  };
+
+  const handleOpenContact = () => {
+    setShowContact(true);
+  };
+
+  const handleCloseContact = () => {
+    setShowContact(false);
+  };
+
+  const handleOpenAdminDescuentos = () => {
+    setShowAdminDescuentos(true);
+  };
+
+  const handleCloseAdminDescuentos = () => {
+    setShowAdminDescuentos(false);
+  };
+
+  const handleOpenAdminAnalytics = () => {
+    setShowAdminAnalytics(true);
+  };
+
+  const handleCloseAdminAnalytics = () => {
+    setShowAdminAnalytics(false);
+  };
+
   return (
     <div className="app">
-      <Navbar />
-      <Hero />
-      <ProductGrid />
+      <HalloweenDecorations />
+      <Navbar
+        onOpenLogin={handleOpenLogin}
+        onOpenProfile={handleOpenProfile}
+        onOpenContact={handleOpenContact}
+        onOpenAdminDescuentos={handleOpenAdminDescuentos}
+        onOpenAdminAnalytics={handleOpenAdminAnalytics}
+      />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/categoria/:categoria" element={<CategoryPage />} />
+      </Routes>
       <Cart onCheckout={handleCheckout} />
       {showCheckout && <Checkout onClose={handleCloseCheckout} />}
-
-      <footer style={{
-        background: '#1a1a1a',
-        color: 'white',
-        textAlign: 'center',
-        padding: '3rem 2rem',
-        marginTop: '6rem'
-      }}>
-        <h3 style={{
-          fontFamily: "'Playfair Display', serif",
-          fontSize: '2rem',
-          marginBottom: '1rem',
-          letterSpacing: '2px'
-        }}>
-          MODA
-        </h3>
-        <p style={{
-          color: '#d4af37',
-          fontSize: '0.8rem',
-          letterSpacing: '2px',
-          textTransform: 'uppercase',
-          marginBottom: '2rem'
-        }}>
-          Luxury Fashion
-        </p>
-        <p style={{ opacity: 0.7, fontSize: '0.9rem' }}>
-          © 2024 MODA. Todos los derechos reservados.
-        </p>
-      </footer>
+      {showLogin && (
+        <Login
+          onClose={handleCloseAuth}
+          onSwitchToRegister={handleOpenRegister}
+        />
+      )}
+      {showRegister && (
+        <Register
+          onClose={handleCloseAuth}
+          onSwitchToLogin={handleOpenLogin}
+        />
+      )}
+      {showProfile && <UserProfile onClose={handleCloseAuth} />}
+      {showContact && <Contact onClose={handleCloseContact} />}
+      {showAdminDescuentos && <AdminDescuentos onClose={handleCloseAdminDescuentos} />}
+      {showAdminAnalytics && <AdminAnalytics onClose={handleCloseAdminAnalytics} />}
+      <Footer />
     </div>
   );
 }

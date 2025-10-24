@@ -1,0 +1,187 @@
+/* ==================== CATEGORY BANNER ==================== */
+.category-banner {
+  background: #1a1a1a;
+  padding: 0;
+  margin: 0;
+}
+
+.category-banner-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2px;
+  max-width: 100%;
+  margin: 0;
+  background: #1a1a1a;
+}
+
+/* ==================== CATEGORY BANNER ITEM ==================== */
+.category-banner-item {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #000;
+}
+
+.category-banner-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  transition: all 0.4s ease;
+}
+
+.category-banner-item:hover::before {
+  background: rgba(0, 0, 0, 0);
+}
+
+.category-banner-item:hover {
+  z-index: 10;
+}
+
+/* ==================== IMAGEN ==================== */
+.category-banner-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.category-banner-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: brightness(0.85) contrast(1.1);
+}
+
+.category-banner-item:hover .category-banner-image img {
+  transform: scale(1.15);
+  filter: brightness(1) contrast(1.15);
+}
+
+.category-banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  z-index: 1;
+  transition: all 0.4s ease;
+}
+
+.category-banner-item:hover .category-banner-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
+
+/* ==================== CONTENIDO ==================== */
+.category-banner-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 3rem 2.5rem;
+  z-index: 2;
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+.category-banner-item:hover .category-banner-content {
+  padding: 3.5rem 2.5rem;
+}
+
+.category-banner-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.8);
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.category-banner-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 60px;
+  height: 2px;
+  background: white;
+  transition: transform 0.4s ease;
+}
+
+.category-banner-item:hover .category-banner-title {
+  letter-spacing: 6px;
+  text-shadow: 2px 6px 16px rgba(0, 0, 0, 0.9);
+}
+
+.category-banner-item:hover .category-banner-title::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+  .category-banner-item {
+    height: 350px;
+  }
+
+  .category-banner-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .category-banner-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-banner-item {
+    height: 300px;
+  }
+
+  .category-banner-title {
+    font-size: 2rem;
+  }
+
+  .category-banner-content {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-banner-item {
+    height: 250px;
+  }
+
+  .category-banner-title {
+    font-size: 1.8rem;
+  }
+
+  .category-banner-content {
+    padding: 1.5rem;
+  }
+}

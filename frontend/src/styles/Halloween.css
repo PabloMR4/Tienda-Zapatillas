@@ -1,0 +1,327 @@
+/* ============================================
+   DECORACIONES DE HALLOWEEN - ShoeLandia
+   ============================================ */
+
+/* Contenedor de decoraciones de Halloween */
+.halloween-decorations {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+/* Calabazas flotantes */
+.pumpkin {
+  position: absolute;
+  font-size: 40px;
+  animation: float 6s ease-in-out infinite;
+  opacity: 0.7;
+  filter: drop-shadow(0 0 10px rgba(255, 140, 0, 0.5));
+}
+
+.pumpkin-1 {
+  top: 10%;
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.pumpkin-2 {
+  top: 20%;
+  right: 8%;
+  animation-delay: 2s;
+}
+
+.pumpkin-3 {
+  bottom: 15%;
+  left: 10%;
+  animation-delay: 4s;
+}
+
+/* Murciélagos voladores */
+.bat {
+  position: absolute;
+  font-size: 30px;
+  animation: flyBat 15s linear infinite;
+  opacity: 0.6;
+}
+
+.bat-1 {
+  top: 15%;
+  animation-delay: 0s;
+}
+
+.bat-2 {
+  top: 35%;
+  animation-delay: 5s;
+}
+
+.bat-3 {
+  top: 55%;
+  animation-delay: 10s;
+}
+
+/* Fantasmas flotantes */
+.ghost {
+  position: absolute;
+  font-size: 35px;
+  animation: ghostFloat 8s ease-in-out infinite;
+  opacity: 0.5;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8));
+}
+
+.ghost-1 {
+  top: 25%;
+  right: 15%;
+  animation-delay: 0s;
+}
+
+.ghost-2 {
+  bottom: 25%;
+  right: 5%;
+  animation-delay: 4s;
+}
+
+/* Arañas colgantes */
+.spider {
+  position: absolute;
+  font-size: 25px;
+  animation: spiderSwing 4s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.spider::before {
+  content: '';
+  position: absolute;
+  width: 1px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  top: -50px;
+  left: 50%;
+}
+
+.spider-1 {
+  top: 0;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.spider-2 {
+  top: 0;
+  right: 30%;
+  animation-delay: 2s;
+}
+
+/* Lunas con brillo */
+.moon {
+  position: absolute;
+  top: 5%;
+  right: 10%;
+  font-size: 50px;
+  animation: moonGlow 3s ease-in-out infinite;
+  opacity: 0.8;
+  filter: drop-shadow(0 0 20px rgba(255, 223, 0, 0.8));
+}
+
+/* Estrellas parpadeantes */
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.star {
+  position: absolute;
+  color: #fff;
+  font-size: 10px;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.star-1 { top: 8%; left: 15%; animation-delay: 0s; }
+.star-2 { top: 12%; right: 20%; animation-delay: 1s; }
+.star-3 { top: 18%; left: 40%; animation-delay: 2s; }
+.star-4 { top: 15%; right: 35%; animation-delay: 1.5s; }
+.star-5 { top: 22%; left: 65%; animation-delay: 0.5s; }
+.star-6 { top: 10%; right: 50%; animation-delay: 2.5s; }
+
+/* Telarañas en las esquinas */
+.cobweb {
+  position: absolute;
+  font-size: 60px;
+  opacity: 0.3;
+  color: #ccc;
+}
+
+.cobweb-top-left {
+  top: 0;
+  left: 0;
+  transform: rotate(0deg);
+}
+
+.cobweb-top-right {
+  top: 0;
+  right: 0;
+  transform: scaleX(-1);
+}
+
+/* Efecto de niebla */
+.fog {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(to top, rgba(139, 0, 139, 0.1), transparent);
+  animation: fogMove 20s ease-in-out infinite;
+}
+
+/* Overlay sutil de color Halloween */
+.halloween-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at top, rgba(75, 0, 130, 0.03), transparent 50%),
+              radial-gradient(ellipse at bottom, rgba(255, 140, 0, 0.03), transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ============================================
+   ANIMACIONES
+   ============================================ */
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+@keyframes flyBat {
+  0% {
+    left: -100px;
+    transform: translateY(0) scaleX(1);
+  }
+  45% {
+    transform: translateY(-30px) scaleX(1);
+  }
+  50% {
+    left: 50%;
+    transform: translateY(-40px) scaleX(-1);
+  }
+  95% {
+    transform: translateY(-30px) scaleX(-1);
+  }
+  100% {
+    left: calc(100% + 100px);
+    transform: translateY(0) scaleX(-1);
+  }
+}
+
+@keyframes ghostFloat {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.5;
+  }
+  25% {
+    transform: translateY(-15px) translateX(10px);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-5px) translateX(-10px);
+    opacity: 0.6;
+  }
+  75% {
+    transform: translateY(-20px) translateX(5px);
+    opacity: 0.4;
+  }
+}
+
+@keyframes spiderSwing {
+  0%, 100% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+}
+
+@keyframes moonGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px rgba(255, 223, 0, 0.6));
+    opacity: 0.8;
+  }
+  50% {
+    filter: drop-shadow(0 0 30px rgba(255, 223, 0, 1));
+    opacity: 1;
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes fogMove {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateX(50px);
+    opacity: 0.3;
+  }
+}
+
+/* ============================================
+   EFECTOS EN BOTONES Y CARDS (opcional)
+   ============================================ */
+
+/* Brillo sutil en hover con tema Halloween */
+.halloween-mode button:hover,
+.halloween-mode .product-card:hover {
+  box-shadow: 0 0 20px rgba(255, 140, 0, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pumpkin, .ghost {
+    font-size: 30px;
+  }
+
+  .bat {
+    font-size: 25px;
+  }
+
+  .spider {
+    font-size: 20px;
+  }
+
+  .moon {
+    font-size: 40px;
+  }
+
+  .cobweb {
+    font-size: 40px;
+  }
+
+  /* Reducir número de elementos en móvil para mejor rendimiento */
+  .pumpkin-3, .bat-3, .ghost-2, .spider-2 {
+    display: none;
+  }
+}

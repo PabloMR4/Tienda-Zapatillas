@@ -1,0 +1,51 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nombre": "Pablo Martinez Ruiz",
+      "email": "pablo.martinezruiz@protonmail.com",
+      "password": "$2b$10$A2DLB3yrxG1OKagbYddjUuBabo8mw/LGsNsmh8di8s7BePrhcLdUK",
+      "telefono": "606297102",
+      "direccion": "",
+      "ciudad": "",
+      "provincia": "",
+      "codigoPostal": "",
+      "fechaRegistro": "2025-10-19T23:54:08.848Z",
+      "pedidos": [
+        5,
+        9
+      ]
+    },
+    {
+      "id": 2,
+      "nombre": "prueba",
+      "email": "prueba@prueba.com",
+      "password": "$2b$10$QQghcBZZrSprSifTiy3WQOona7kdDFPsAAkfi5WjB7mTSHw7f1/pG",
+      "telefono": "666666666",
+      "direccion": "",
+      "ciudad": "",
+      "provincia": "",
+      "codigoPostal": "",
+      "fechaRegistro": "2025-10-20T01:29:13.851Z",
+      "pedidos": [
+        6
+      ]
+    },
+    {
+      "id": 3,
+      "nombre": "VICTOR MARTINEZ  RUIZ",
+      "email": "victor13_33@hotmail.com",
+      "password": "$2b$10$epk67mbzZagtcKViqZcGyuay7RDdyeW4MwZuRUwIOhBB9MLEjLwsm",
+      "telefono": "690393135",
+      "direccion": "",
+      "ciudad": "",
+      "provincia": "",
+      "codigoPostal": "",
+      "fechaRegistro": "2025-10-22T22:22:13.892Z",
+      "pedidos": [
+        10
+      ]
+    }
+  ],
+  "counter": 4
+}

@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ProductCard from './ProductCard';
+import ProductModal from './ProductModal';
 import { obtenerProductos } from '../services/api';
 import '../styles/ProductGrid.css';
 
 const ProductGrid = () => {
+  const navigate = useNavigate();
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [filter, setFilter] = useState('todos');
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const sliderRefs = useRef({});
 
   useEffect(() => {
     cargarProductos();
@@ -23,11 +27,46 @@ const ProductGrid = () => {
     }
   };
 
-  const categorias = ['todos', 'zapatillas', 'bolsos'];
+  // Obtener productos destacados (1 por categoría)
+  const getProductosDestacados = () => {
+    const categorias = [...new Set(productos.map(p => p.categoria))];
+    const destacados = [];
 
-  const productosFiltrados = filter === 'todos'
-    ? productos
-    : productos.filter(p => p.categoria === filter);
+    categorias.forEach(categoria => {
+      const destacado = productos.find(p => p.categoria === categoria && p.destacado);
+      if (destacado) {
+        destacados.push(destacado);
+      }
+    });
+
+    return destacados;
+  };
+
+  // Obtener categorías únicas de los productos (excluyendo destacados)
+  const categoriasUnicas = [...new Set(productos.map(p => p.categoria))];
+
+  const getProductosPorCategoria = (categoria) => {
+    return productos.filter(p => p.categoria === categoria).slice(0, 4);
+  };
+
+  const formatearNombreCategoria = (categoria) => {
+    // Capitalizar primera letra de cada palabra
+    return categoria
+      .split(/[-\s]+/)
+      .map(palabra => palabra.charAt(0).toUpperCase() + palabra.slice(1))
+      .join(' ');
+  };
+
+  const scrollSlider = (categoria, direction) => {
+    const slider = sliderRefs.current[categoria];
+    if (slider) {
+      const scrollAmount = 320; // ancho de la card + gap
+      slider.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   if (loading) {
     return (
@@ -40,44 +79,105 @@ const ProductGrid = () => {
     );
   }
 
+  const productosDestacados = getProductosDestacados();
+
   return (
     <section className="product-section" id="collection">
-      <div className="section-header">
-        <span className="section-subtitle">Descubre</span>
-        <h2 className="section-title">Nuestra Colección</h2>
-        <p className="section-description">
-          Zapatillas y bolsos exclusivos para complementar tu estilo
-        </p>
-      </div>
-
-      <div className="filter-buttons">
-        {categorias.map(categoria => (
-          <button
-            key={categoria}
-            className={`filter-btn ${filter === categoria ? 'active' : ''}`}
-            onClick={() => setFilter(categoria)}
-          >
-            {categoria.charAt(0).toUpperCase() + categoria.slice(1)}
-          </button>
-        ))}
-      </div>
-
-      <div className="product-grid">
-        {productosFiltrados.map((producto, index) => (
-          <div
-            key={producto.id}
-            className="product-grid-item"
-            style={{ animationDelay: `${index * 0.1}s` }}
-          >
-            <ProductCard producto={producto} />
+      {/* Sección de Productos Destacados */}
+      {productosDestacados.length > 0 && (
+        <div key="destacados" className="category-section">
+          <div className="category-header">
+            <h3 className="category-title">Productos Destacados</h3>
+            <div className="slider-controls">
+              <button
+                className="slider-btn slider-btn-left"
+                onClick={() => scrollSlider('destacados', 'left')}
+                aria-label="Anterior"
+              >
+                ‹
+              </button>
+              <button
+                className="slider-btn slider-btn-right"
+                onClick={() => scrollSlider('destacados', 'right')}
+                aria-label="Siguiente"
+              >
+                ›
+              </button>
+            </div>
           </div>
-        ))}
-      </div>
 
-      {productosFiltrados.length === 0 && (
-        <div className="no-products">
-          <p>No hay productos en esta categoría</p>
+          <div
+            className="product-slider"
+            ref={el => sliderRefs.current['destacados'] = el}
+          >
+            {productosDestacados.map((producto) => (
+              <div
+                key={producto.id}
+                className="product-slider-item"
+              >
+                <ProductCard
+                  producto={producto}
+                  onProductClick={() => setSelectedProduct(producto)}
+                />
+              </div>
+            ))}
+          </div>
         </div>
+      )}
+
+      {/* Resto de categorías */}
+      {categoriasUnicas.map(categoria => {
+        const productosCategoria = getProductosPorCategoria(categoria);
+
+        if (productosCategoria.length === 0) return null;
+
+        return (
+          <div key={categoria} className="category-section">
+            <div className="category-header">
+              <h3 className="category-title">{formatearNombreCategoria(categoria)}</h3>
+              <div className="slider-controls">
+                <button
+                  className="slider-btn slider-btn-left"
+                  onClick={() => scrollSlider(categoria, 'left')}
+                  aria-label="Anterior"
+                >
+                  ‹
+                </button>
+                <button
+                  className="slider-btn slider-btn-right"
+                  onClick={() => scrollSlider(categoria, 'right')}
+                  aria-label="Siguiente"
+                >
+                  ›
+                </button>
+              </div>
+            </div>
+
+            <div
+              className="product-slider"
+              ref={el => sliderRefs.current[categoria] = el}
+            >
+              {productosCategoria.map((producto) => (
+                <div
+                  key={producto.id}
+                  className="product-slider-item"
+                >
+                  <ProductCard
+                    producto={producto}
+                    onProductClick={() => setSelectedProduct(producto)}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+
+      {selectedProduct && (
+        <ProductModal
+          producto={selectedProduct}
+          onClose={() => setSelectedProduct(null)}
+        />
       )}
     </section>
   );

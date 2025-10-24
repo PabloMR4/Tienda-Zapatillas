@@ -1,13 +1,60 @@
 {
   "categorias": [
     {
-      "id": 1,
-      "nombre": "zapatillas"
+      "id": 4,
+      "nombre": "hombre",
+      "parentId": null
     },
     {
-      "id": 2,
-      "nombre": "bolsos"
+      "id": 5,
+      "nombre": "mujer",
+      "parentId": null
+    },
+    {
+      "id": 6,
+      "nombre": "botines",
+      "parentId": 5
+    },
+    {
+      "id": 7,
+      "nombre": "botas",
+      "parentId": 5
+    },
+    {
+      "id": 8,
+      "nombre": "deportivas - sneakers",
+      "parentId": 5
+    },
+    {
+      "id": 9,
+      "nombre": "sandalias",
+      "parentId": 5
+    },
+    {
+      "id": 10,
+      "nombre": "zapatos",
+      "parentId": 5
+    },
+    {
+      "id": 11,
+      "nombre": "alpargatas/espadrillas",
+      "parentId": 5
+    },
+    {
+      "id": 12,
+      "nombre": "bailarinas",
+      "parentId": 5
+    },
+    {
+      "id": 13,
+      "nombre": "complementos",
+      "parentId": null
+    },
+    {
+      "id": 14,
+      "nombre": "bolsos",
+      "parentId": 13
     }
   ],
-  "counter": 3
+  "counter": 15
 }

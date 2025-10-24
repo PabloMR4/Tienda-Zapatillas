@@ -2,17 +2,52 @@
   "descuentos": [
     {
       "id": 1,
-      "nombre": "Descuento Hallowen",
-      "porcentaje": 25,
+      "nombre": "Descuento Halloween - 10% en todo",
+      "porcentaje": 10,
       "tipo": "general",
       "aplicaA": null,
-      "fechaInicio": "2025-10-10T15:00",
-      "fechaFin": "2025-10-31T00:00",
+      "fechaInicio": "2025-10-10T11:00",
+      "fechaFin": "2025-10-30T22:00",
       "activo": true,
-      "codigo": "Hallowen25",
-      "vecesUsado": 1,
-      "creadoEn": "2025-10-12T22:50:39.566Z"
+      "codigo": null,
+      "vecesUsado": 12,
+      "creadoEn": "2025-10-12T22:50:39.566Z",
+      "actualizadoEn": "2025-10-23T01:00:00.000Z",
+      "tipoCodigo": "general",
+      "tipoBeneficioGlobal": "porcentaje"
+    },
+    {
+      "id": 2,
+      "nombre": "Envio gratutito +50€",
+      "porcentaje": 0,
+      "tipo": "pedido",
+      "aplicaA": null,
+      "fechaInicio": "2025-10-14T00:00",
+      "fechaFin": "2060-12-31T00:00",
+      "activo": true,
+      "codigo": null,
+      "vecesUsado": 0,
+      "creadoEn": "2025-10-14T01:03:02.180Z",
+      "montoMinimo": 50,
+      "tipoBeneficio": "envio_gratis",
+      "tipoCodigo": "general"
+    },
+    {
+      "id": 3,
+      "nombre": "Descuento 5€",
+      "porcentaje": 0,
+      "tipo": "general",
+      "aplicaA": null,
+      "fechaInicio": "2025-01-01T00:00",
+      "fechaFin": "2050-12-31T00:00",
+      "activo": true,
+      "codigo": "DESCUENTO5€",
+      "vecesUsado": 4,
+      "creadoEn": "2025-10-22T18:06:40.907Z",
+      "tipoCodigo": "promocional",
+      "tipoBeneficioGlobal": "cantidad",
+      "cantidad": 5
     }
   ],
-  "counter": 2
+  "counter": 5
 }

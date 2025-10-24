@@ -1,0 +1,156 @@
+/* ==================== ETHICAL BANNER ==================== */
+.ethical-banner {
+  background: linear-gradient(135deg, #f5f0e8 0%, #ffffff 100%);
+  padding: 6rem 2rem;
+}
+
+.ethical-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: center;
+  background: white;
+  padding: 4rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.08);
+  animation: fadeInUp 1s ease-out;
+}
+
+/* ==================== IMAGEN ==================== */
+.ethical-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 15px;
+  transition: all 0.4s ease;
+}
+
+.ethical-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.ethical-image img {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.ethical-image:hover img {
+  transform: scale(1.1);
+}
+
+/* ==================== CONTENIDO ==================== */
+.ethical-content {
+  padding: 2rem 0;
+}
+
+.ethical-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+}
+
+.ethical-description {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #555;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+/* ==================== ANIMACIONES ==================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+  .ethical-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 3rem;
+  }
+
+  .ethical-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .ethical-description {
+    font-size: 1.05rem;
+    text-align: center;
+  }
+
+  .ethical-image {
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .ethical-banner {
+    padding: 4rem 1.5rem;
+  }
+
+  .ethical-container {
+    padding: 2.5rem 2rem;
+    gap: 2rem;
+  }
+
+  .ethical-title {
+    font-size: 1.8rem;
+  }
+
+  .ethical-description {
+    font-size: 1rem;
+  }
+
+  .ethical-image img {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ethical-banner {
+    padding: 3rem 1rem;
+  }
+
+  .ethical-container {
+    padding: 2rem 1.5rem;
+    border-radius: 15px;
+  }
+
+  .ethical-title {
+    font-size: 1.5rem;
+  }
+
+  .ethical-description {
+    font-size: 0.95rem;
+  }
+
+  .ethical-image {
+    padding: 1.5rem;
+  }
+
+  .ethical-image img {
+    max-width: 250px;
+  }
+}

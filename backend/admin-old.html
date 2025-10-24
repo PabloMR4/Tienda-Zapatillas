@@ -135,6 +135,28 @@
             color: #333;
         }
 
+        .stripe-id {
+            background: #f0f4ff;
+            color: #5469d4;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+            cursor: pointer;
+            display: inline-block;
+            margin-left: 5px;
+            transition: all 0.2s;
+        }
+
+        .stripe-id:hover {
+            background: #e0ebff;
+            transform: scale(1.02);
+        }
+
+        .stripe-id:active {
+            transform: scale(0.98);
+        }
+
         .pedido-items {
             background: white;
             padding: 15px;
@@ -260,7 +282,8 @@
                             <div class="pedido-cliente">
                                 <strong>Cliente:</strong> ${pedido.cliente.nombre}<br>
                                 <strong>Email:</strong> ${pedido.cliente.email}<br>
-                                <strong>Teléfono:</strong> ${pedido.cliente.telefono}
+                                <strong>Teléfono:</strong> ${pedido.cliente.telefono}<br>
+                                ${pedido.paymentIntentId ? `<strong>💳 Stripe ID:</strong> <span class="stripe-id" onclick="copiarStripeId('${pedido.paymentIntentId}')" title="Clic para copiar">${pedido.paymentIntentId}</span>` : ''}
                             </div>
                             <div class="pedido-items">
                                 ${pedido.items.map(item => `
@@ -278,6 +301,36 @@
                 document.getElementById('pedidos-lista').innerHTML =
                     '<div class="no-pedidos">Error al cargar pedidos. Asegúrate de que el servidor esté corriendo.</div>';
             }
+        }
+
+        // Función para copiar el Stripe ID al portapapeles
+        function copiarStripeId(stripeId) {
+            navigator.clipboard.writeText(stripeId).then(() => {
+                // Mostrar mensaje de éxito
+                const mensaje = document.createElement('div');
+                mensaje.textContent = '✓ ID copiado al portapapeles';
+                mensaje.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: #4CAF50;
+                    color: white;
+                    padding: 15px 25px;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                    z-index: 10000;
+                    animation: slideIn 0.3s ease-out;
+                `;
+                document.body.appendChild(mensaje);
+
+                // Eliminar el mensaje después de 2 segundos
+                setTimeout(() => {
+                    mensaje.style.animation = 'slideOut 0.3s ease-in';
+                    setTimeout(() => mensaje.remove(), 300);
+                }, 2000);
+            }).catch(err => {
+                alert('Error al copiar: ' + err);
+            });
         }
 
         // Cargar pedidos al inicio
