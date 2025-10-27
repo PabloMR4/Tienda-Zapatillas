@@ -273,6 +273,7 @@
 /* ==================== DROPDOWN MENU ==================== */
 .navbar-dropdown {
   position: relative;
+  pointer-events: auto;
 }
 
 .dropdown-trigger {
@@ -303,6 +304,7 @@
   z-index: 1002;
   animation: dropdownFadeIn 0.3s ease-out;
   border: 1px solid #e0e0e0;
+  pointer-events: auto;
 }
 
 /* Área invisible para facilitar la navegación entre el botón y el menú */
@@ -352,6 +354,9 @@
   letter-spacing: 0.5px;
   transition: all 0.2s ease;
   position: relative;
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 1;
 }
 
 .dropdown-item::after {

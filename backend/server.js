@@ -12,6 +12,7 @@ const multer = require('multer');
 const nodemailer = require('nodemailer');
 const cron = require('node-cron');
 const axios = require('axios');
+const sharp = require('sharp');
 
 // Verificar que las claves de Stripe estén configuradas
 if (!process.env.STRIPE_SECRET_KEY) {
@@ -33,6 +34,7 @@ const CATEGORIAS_FILE = path.join(DATA_DIR, 'categorias.json');
 const DESCUENTOS_FILE = path.join(DATA_DIR, 'descuentos.json');
 const USUARIOS_FILE = path.join(DATA_DIR, 'usuarios.json');
 const TICKETS_FILE = path.join(DATA_DIR, 'tickets.json');
+const PUBLICACIONES_FILE = path.join(DATA_DIR, 'publicaciones.json');
 const AUTO_UPDATE_FILE = path.join(DATA_DIR, 'auto_update.json');
 const UPLOADS_DIR = path.join(__dirname, 'uploads');
 
@@ -662,6 +664,10 @@ let descuentoIdCounter = 1;
 let usuarios = [];
 let usuarioIdCounter = 1;
 
+// Base de datos en memoria (publicaciones en RRSS)
+let publicaciones = [];
+let publicacionIdCounter = 1;
+
 // Base de datos en memoria (tickets de soporte)
 let tickets = [];
 let ticketIdCounter = 1;
@@ -772,6 +778,15 @@ function cargarDatos() {
       ticketIdCounter = parsed.counter || ticketIdCounter;
       console.log(`✅ ${tickets.length} tickets cargados`);
     }
+
+    // Cargar publicaciones
+    if (fs.existsSync(PUBLICACIONES_FILE)) {
+      const data = fs.readFileSync(PUBLICACIONES_FILE, 'utf8');
+      const parsed = JSON.parse(data);
+      publicaciones = parsed.publicaciones || publicaciones;
+      publicacionIdCounter = parsed.counter || publicacionIdCounter;
+      console.log(`✅ ${publicaciones.length} publicaciones cargadas`);
+    }
   } catch (error) {
     console.error('❌ Error cargando datos:', error.message);
   }
@@ -816,9 +831,50 @@ function guardarDatos() {
       counter: ticketIdCounter
     }, null, 2), 'utf8');
 
+    // Guardar publicaciones
+    fs.writeFileSync(PUBLICACIONES_FILE, JSON.stringify({
+      publicaciones,
+      counter: publicacionIdCounter
+    }, null, 2), 'utf8');
+
     console.log('💾 Datos guardados correctamente');
   } catch (error) {
     console.error('❌ Error guardando datos:', error.message);
+  }
+}
+
+// Función para limpiar archivos temporales de imágenes procesadas
+function limpiarArchivosTemporales() {
+  try {
+    console.log('🧹 Iniciando limpieza de archivos temporales...');
+
+    const files = fs.readdirSync(UPLOADS_DIR);
+    const now = Date.now();
+    const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000; // 24 horas en milisegundos
+    let eliminados = 0;
+
+    files.forEach(file => {
+      // Solo eliminar archivos que empiecen con "temp_"
+      if (file.startsWith('temp_')) {
+        const filepath = path.join(UPLOADS_DIR, file);
+        const stats = fs.statSync(filepath);
+        const fileAge = now - stats.mtimeMs;
+
+        // Eliminar si tiene más de 24 horas
+        if (fileAge > TWENTY_FOUR_HOURS) {
+          fs.unlinkSync(filepath);
+          eliminados++;
+        }
+      }
+    });
+
+    if (eliminados > 0) {
+      console.log(`✅ Limpieza completada: ${eliminados} archivo(s) temporal(es) eliminado(s)`);
+    } else {
+      console.log('ℹ️ No hay archivos temporales para eliminar');
+    }
+  } catch (error) {
+    console.error('❌ Error limpiando archivos temporales:', error.message);
   }
 }
 
@@ -827,6 +883,12 @@ cargarDatos();
 
 // Guardar datos cada 30 segundos
 setInterval(guardarDatos, 30000);
+
+// Limpiar archivos temporales cada 24 horas
+setInterval(limpiarArchivosTemporales, 24 * 60 * 60 * 1000);
+
+// Ejecutar limpieza inicial al arrancar el servidor
+limpiarArchivosTemporales();
 
 // Guardar datos al cerrar el servidor
 process.on('SIGINT', () => {
@@ -1494,6 +1556,40 @@ app.delete('/api/productos/:id', (req, res) => {
     productos.splice(productoIndex, 1);
     guardarDatos();
     res.json({ mensaje: 'Producto eliminado correctamente' });
+  } else {
+    res.status(404).json({ mensaje: 'Producto no encontrado' });
+  }
+});
+
+// Incrementar contador de compartidos en Instagram
+app.post('/api/productos/:id/instagram-share', requireAuth, (req, res) => {
+  const id = parseInt(req.params.id);
+  const { instagram, facebook } = req.body; // Recibir qué redes fueron publicadas
+  const producto = productos.find(p => p.id === id);
+
+  if (producto) {
+    // Inicializar contadores si no existen
+    if (producto.instagramShares === undefined) {
+      producto.instagramShares = 0;
+    }
+    if (producto.facebookShares === undefined) {
+      producto.facebookShares = 0;
+    }
+
+    // Incrementar contadores según qué se publicó
+    if (instagram !== false) { // Por defecto incrementar Instagram
+      producto.instagramShares++;
+    }
+    if (facebook === true) { // Solo incrementar Facebook si se especifica
+      producto.facebookShares++;
+    }
+
+    guardarDatos();
+    res.json({
+      mensaje: 'Contador(es) actualizado(s)',
+      instagramShares: producto.instagramShares,
+      facebookShares: producto.facebookShares
+    });
   } else {
     res.status(404).json({ mensaje: 'Producto no encontrado' });
   }
@@ -2704,12 +2800,79 @@ app.post('/api/marketing/registrar-compartir', requireAuth, async (req, res) => 
   }
 });
 
+// Función para añadir círculo de color a imagen según género
+async function añadirCirculoGenero(imagenUrl, genero) {
+  try {
+    // Determinar color según género
+    const color = genero === 'Mujer' ? '#FF69B4' : genero === 'Hombre' ? '#4169E1' : null;
+
+    if (!color) {
+      console.log('⚠️ No se detectó género, imagen sin círculo');
+      return imagenUrl; // Devolver URL original si no hay género
+    }
+
+    console.log(`🎨 Añadiendo círculo ${color} para ${genero}`);
+
+    // Descargar la imagen
+    const response = await axios.get(imagenUrl, {
+      responseType: 'arraybuffer',
+      timeout: 10000
+    });
+    const imageBuffer = Buffer.from(response.data);
+
+    // Obtener dimensiones de la imagen
+    const metadata = await sharp(imageBuffer).metadata();
+    const { width, height } = metadata;
+
+    // Calcular tamaño y posición del círculo (esquina superior derecha)
+    const circleRadius = Math.min(width, height) * 0.04; // 4% del tamaño menor (mitad del original)
+    const circleSize = circleRadius * 2;
+    const margin = circleRadius * 0.5; // Margen desde el borde
+
+    // Crear SVG del círculo
+    const circleSvg = `
+      <svg width="${circleSize}" height="${circleSize}">
+        <circle cx="${circleRadius}" cy="${circleRadius}" r="${circleRadius}" fill="${color}"/>
+      </svg>
+    `;
+
+    // Procesar imagen: añadir círculo en la esquina superior derecha
+    const processedImage = await sharp(imageBuffer)
+      .composite([{
+        input: Buffer.from(circleSvg),
+        top: Math.round(margin),
+        left: Math.round(width - circleSize - margin),
+      }])
+      .jpeg({ quality: 90 })
+      .toBuffer();
+
+    // Guardar imagen procesada temporalmente
+    const timestamp = Date.now();
+    const randomStr = Math.random().toString(36).substring(7);
+    const filename = `temp_${timestamp}_${randomStr}.jpg`;
+    const filepath = path.join(UPLOADS_DIR, filename);
+
+    fs.writeFileSync(filepath, processedImage);
+
+    // Devolver URL local del servidor
+    const serverUrl = `http://109.205.182.103:3000/uploads/${filename}`;
+    console.log(`✅ Imagen procesada guardada en: ${serverUrl}`);
+
+    return serverUrl;
+
+  } catch (error) {
+    console.error('❌ Error procesando imagen:', error.message);
+    // Si hay error, devolver URL original
+    return imagenUrl;
+  }
+}
+
 // Endpoint para publicar en Instagram
 app.post('/api/instagram/publicar', requireAuth, async (req, res) => {
   try {
-    const { producto, texto, imagenUrl } = req.body;
+    const { producto, texto, imagenesUrls } = req.body;
 
-    if (!producto || !texto || !imagenUrl) {
+    if (!producto || !texto) {
       return res.status(400).json({ error: 'Faltan datos necesarios para la publicación' });
     }
 
@@ -2725,46 +2888,200 @@ app.post('/api/instagram/publicar', requireAuth, async (req, res) => {
     }
 
     console.log(`📷 Publicando en Instagram: ${producto.nombre}`);
+    console.log(`📝 Caption: ${texto.substring(0, 100)}...`);
+    console.log(`🖼️ Número de imágenes: ${imagenesUrls ? imagenesUrls.length : 0}`);
 
-    // Paso 1: Crear el contenedor de medios
-    const crearContenedorResponse = await axios.post(
-      `https://graph.facebook.com/v18.0/${instagramAccountId}/media`,
-      {
-        image_url: imagenUrl,
-        caption: texto,
-        access_token: instagramAccessToken
+    // Detectar género del producto
+    let genero = null;
+    if (producto.rutaCategoria) {
+      if (producto.rutaCategoria.toLowerCase().includes('mujer')) {
+        genero = 'Mujer';
+      } else if (producto.rutaCategoria.toLowerCase().includes('hombre')) {
+        genero = 'Hombre';
       }
-    );
-
-    const mediaId = crearContenedorResponse.data.id;
-
-    if (!mediaId) {
-      throw new Error('No se pudo crear el contenedor de medios');
+    } else if (producto.descripcion) {
+      if (producto.descripcion.toLowerCase().includes('mujer')) {
+        genero = 'Mujer';
+      } else if (producto.descripcion.toLowerCase().includes('hombre')) {
+        genero = 'Hombre';
+      }
     }
 
-    // Paso 2: Publicar el contenedor
-    const publicarResponse = await axios.post(
-      `https://graph.facebook.com/v18.0/${instagramAccountId}/media_publish`,
-      {
-        creation_id: mediaId,
-        access_token: instagramAccessToken
+    console.log(`👤 Género detectado: ${genero || 'No detectado'}`);
+
+    // Procesar todas las imágenes añadiendo el círculo de color
+    let imagenesProcesadas = [];
+    if (imagenesUrls && imagenesUrls.length > 0) {
+      console.log('🎨 Procesando imágenes con círculo de género...');
+      for (const imagenUrl of imagenesUrls) {
+        const imagenProcesada = await añadirCirculoGenero(imagenUrl, genero);
+        imagenesProcesadas.push(imagenProcesada);
       }
-    );
+    }
 
-    const postId = publicarResponse.data.id;
+    let postId = null; // Variable para almacenar el ID del post
 
-    console.log(`✅ Publicación exitosa en Instagram. Post ID: ${postId}`);
+    // Si hay múltiples imágenes, crear un carrusel
+    if (imagenesProcesadas && imagenesProcesadas.length > 1) {
+      console.log('📸 Creando carrusel con múltiples imágenes...');
+
+      // Paso 1: Crear contenedores para cada imagen
+      const mediaIds = [];
+      for (const imagenUrl of imagenesProcesadas) {
+        const mediaResponse = await axios.post(
+          `https://graph.facebook.com/v18.0/${instagramAccountId}/media`,
+          {
+            image_url: imagenUrl,
+            is_carousel_item: true,
+            access_token: instagramAccessToken
+          }
+        );
+        mediaIds.push(mediaResponse.data.id);
+        console.log(`✓ Contenedor creado para imagen: ${imagenUrl.substring(0, 50)}...`);
+      }
+
+      console.log(`⏳ Esperando 5 segundos para que Instagram procese las imágenes...`);
+      await new Promise(resolve => setTimeout(resolve, 5000));
+
+      // Paso 2: Crear el contenedor del carrusel
+      const carouselResponse = await axios.post(
+        `https://graph.facebook.com/v18.0/${instagramAccountId}/media`,
+        {
+          media_type: 'CAROUSEL',
+          children: mediaIds,
+          caption: texto,
+          access_token: instagramAccessToken
+        }
+      );
+
+      const carouselId = carouselResponse.data.id;
+
+      console.log(`⏳ Esperando 5 segundos para que Instagram procese el carrusel...`);
+      await new Promise(resolve => setTimeout(resolve, 5000));
+
+      // Paso 3: Publicar el carrusel
+      const publicarResponse = await axios.post(
+        `https://graph.facebook.com/v18.0/${instagramAccountId}/media_publish`,
+        {
+          creation_id: carouselId,
+          access_token: instagramAccessToken
+        }
+      );
+
+      postId = publicarResponse.data.id;
+      console.log(`✅ Carrusel publicado exitosamente en Instagram. Post ID: ${postId}`);
+
+    } else {
+      // Publicación de una sola imagen
+      const imagenUrl = imagenesProcesadas && imagenesProcesadas.length > 0 ? imagenesProcesadas[0] : null;
+
+      if (!imagenUrl) {
+        return res.status(400).json({ error: 'No se proporcionó ninguna imagen' });
+      }
+
+      console.log('📸 Publicando imagen única...');
+
+      // Paso 1: Crear el contenedor de medios
+      const crearContenedorResponse = await axios.post(
+        `https://graph.facebook.com/v18.0/${instagramAccountId}/media`,
+        {
+          image_url: imagenUrl,
+          caption: texto,
+          access_token: instagramAccessToken
+        }
+      );
+
+      const mediaId = crearContenedorResponse.data.id;
+
+      if (!mediaId) {
+        throw new Error('No se pudo crear el contenedor de medios');
+      }
+
+      console.log(`⏳ Esperando 5 segundos para que Instagram procese la imagen...`);
+      await new Promise(resolve => setTimeout(resolve, 5000));
+
+      // Paso 2: Publicar el contenedor
+      const publicarResponse = await axios.post(
+        `https://graph.facebook.com/v18.0/${instagramAccountId}/media_publish`,
+        {
+          creation_id: mediaId,
+          access_token: instagramAccessToken
+        }
+      );
+
+      postId = publicarResponse.data.id;
+      console.log(`✅ Publicación exitosa en Instagram. Post ID: ${postId}`);
+    }
+
+    // Publicar también en Facebook (si está configurado)
+    const facebookPageId = process.env.FACEBOOK_PAGE_ID;
+    const facebookPageToken = process.env.FACEBOOK_PAGE_ACCESS_TOKEN;
+    let facebookPostId = null;
+
+    if (facebookPageId && facebookPageId !== 'TU_FACEBOOK_PAGE_ID_AQUI' && facebookPageToken) {
+      try {
+        console.log('📘 Publicando también en Facebook...');
+
+        // Para Facebook, publicar la primera imagen procesada con el caption
+        const primeraImagen = imagenesProcesadas && imagenesProcesadas.length > 0 ? imagenesProcesadas[0] : null;
+
+        if (primeraImagen) {
+          const facebookResponse = await axios.post(
+            `https://graph.facebook.com/v18.0/${facebookPageId}/photos`,
+            {
+              url: primeraImagen,
+              caption: texto,
+              access_token: facebookPageToken
+            }
+          );
+
+          facebookPostId = facebookResponse.data.id;
+          console.log(`✅ Publicación exitosa en Facebook. Post ID: ${facebookPostId}`);
+        }
+      } catch (fbError) {
+        console.error('⚠️ Error publicando en Facebook (Instagram publicado correctamente):', fbError.response?.data || fbError.message);
+        // No fallar si Facebook falla, ya que Instagram se publicó correctamente
+      }
+    }
+
+    // Guardar en el historial de publicaciones
+    const nuevaPublicacion = {
+      id: publicacionIdCounter++,
+      fecha: new Date().toISOString(),
+      producto: {
+        id: producto.id,
+        nombre: producto.nombre,
+        imagen: imagenesUrls && imagenesUrls.length > 0 ? imagenesUrls[0] : null
+      },
+      texto: texto,
+      redes: {
+        instagram: {
+          publicado: true,
+          postId: postId
+        },
+        facebook: {
+          publicado: facebookPostId ? true : false,
+          postId: facebookPostId
+        }
+      }
+    };
+
+    publicaciones.push(nuevaPublicacion);
+    guardarDatos();
 
     res.json({
       success: true,
       postId: postId,
-      mensaje: 'Publicación exitosa en Instagram'
+      publicacionId: nuevaPublicacion.id,
+      mensaje: facebookPageId && facebookPageId !== 'TU_FACEBOOK_PAGE_ID_AQUI' && facebookPageToken
+        ? 'Publicación exitosa en Instagram y Facebook'
+        : 'Publicación exitosa en Instagram'
     });
 
   } catch (error) {
-    console.error('❌ Error publicando en Instagram:', error.response?.data || error.message);
+    console.error('❌ Error publicando en redes sociales:', error.response?.data || error.message);
 
-    let errorMsg = 'Error al publicar en Instagram';
+    let errorMsg = 'Error al publicar en redes sociales';
 
     if (error.response?.data?.error?.message) {
       errorMsg = error.response.data.error.message;
@@ -2776,6 +3093,108 @@ app.post('/api/instagram/publicar', requireAuth, async (req, res) => {
       error: errorMsg,
       detalles: error.response?.data?.error || {}
     });
+  }
+});
+
+// Obtener historial de publicaciones
+app.get('/api/publicaciones', requireAuth, (req, res) => {
+  try {
+    // Ordenar por fecha descendente (más recientes primero)
+    const publicacionesOrdenadas = [...publicaciones].sort((a, b) =>
+      new Date(b.fecha) - new Date(a.fecha)
+    );
+    res.json(publicacionesOrdenadas);
+  } catch (error) {
+    console.error('Error obteniendo publicaciones:', error);
+    res.status(500).json({ error: 'Error al obtener el historial de publicaciones' });
+  }
+});
+
+// Eliminar publicación de redes sociales
+app.delete('/api/publicaciones/:id', requireAuth, async (req, res) => {
+  try {
+    const publicacionId = parseInt(req.params.id);
+    const { eliminarDe } = req.body; // Array: ['instagram', 'facebook'] o uno solo
+
+    const publicacion = publicaciones.find(p => p.id === publicacionId);
+
+    if (!publicacion) {
+      return res.status(404).json({ error: 'Publicación no encontrada' });
+    }
+
+    const resultados = { instagram: null, facebook: null };
+
+    // Eliminar de Instagram si se solicitó
+    if (eliminarDe.includes('instagram') && publicacion.redes.instagram.publicado) {
+      // NOTA: La API de Instagram NO permite eliminar posts publicados.
+      // Solo podemos marcarlos como eliminados del historial.
+      // El usuario debe eliminar el post manualmente desde la app de Instagram.
+      console.log(`ℹ️ Marcando publicación de Instagram como eliminada del historial: ${publicacion.redes.instagram.postId}`);
+      console.log(`⚠️ Recuerda: Los posts de Instagram deben eliminarse manualmente desde la app de Instagram`);
+
+      // Decrementar contador de Instagram del producto
+      const producto = productos.find(p => p.id === publicacion.producto.id);
+      if (producto && producto.instagramShares > 0) {
+        producto.instagramShares--;
+        console.log(`📉 Contador de Instagram decrementado para producto ${producto.nombre}: ${producto.instagramShares}`);
+      }
+
+      resultados.instagram = {
+        success: true,
+        warning: 'El post se ha eliminado del historial. Para eliminarlo de Instagram, hazlo manualmente desde la app de Instagram.',
+        postId: publicacion.redes.instagram.postId
+      };
+      publicacion.redes.instagram.publicado = false;
+    }
+
+    // Eliminar de Facebook si se solicitó
+    if (eliminarDe.includes('facebook') && publicacion.redes.facebook.publicado) {
+      try {
+        const facebookPageToken = process.env.FACEBOOK_PAGE_ACCESS_TOKEN;
+        const postId = publicacion.redes.facebook.postId;
+
+        await axios.delete(
+          `https://graph.facebook.com/v18.0/${postId}`,
+          { params: { access_token: facebookPageToken } }
+        );
+
+        console.log(`✅ Publicación eliminada de Facebook: ${postId}`);
+
+        // Decrementar contador de Facebook del producto
+        const producto = productos.find(p => p.id === publicacion.producto.id);
+        if (producto && producto.facebookShares > 0) {
+          producto.facebookShares--;
+          console.log(`📉 Contador de Facebook decrementado para producto ${producto.nombre}: ${producto.facebookShares}`);
+        }
+
+        resultados.facebook = { success: true };
+        publicacion.redes.facebook.publicado = false;
+      } catch (error) {
+        console.error('Error eliminando de Facebook:', error.response?.data || error.message);
+        resultados.facebook = { success: false, error: error.response?.data?.error?.message || error.message };
+      }
+    }
+
+    // Si ambas redes fueron eliminadas, eliminar del historial
+    if (!publicacion.redes.instagram.publicado && !publicacion.redes.facebook.publicado) {
+      const index = publicaciones.findIndex(p => p.id === publicacionId);
+      if (index > -1) {
+        publicaciones.splice(index, 1);
+      }
+    }
+
+    guardarDatos();
+
+    res.json({
+      success: true,
+      mensaje: 'Publicación procesada',
+      resultados: resultados,
+      publicacionEliminada: !publicacion.redes.instagram.publicado && !publicacion.redes.facebook.publicado
+    });
+
+  } catch (error) {
+    console.error('Error eliminando publicación:', error);
+    res.status(500).json({ error: 'Error al eliminar la publicación' });
   }
 });
 

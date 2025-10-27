@@ -658,36 +658,116 @@
 
         .producto-rrss-card {
             background: white;
-            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
             padding: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            position: relative;
+        }
+
+        .producto-rrss-card.oculto {
+            display: none;
         }
 
         .producto-rrss-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .producto-rrss-card.seleccionado {
+            border-color: #bc1888;
+            background: linear-gradient(135deg, #fef5fb 0%, #fff 100%);
+            box-shadow: 0 4px 16px rgba(188, 24, 136, 0.2);
+        }
+
+        .producto-rrss-card .checkbox-container {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .producto-rrss-card input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #bc1888;
         }
 
         .producto-rrss-card img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
             border-radius: 8px;
-            margin-bottom: 10px;
+            background-color: #f5f5f5;
         }
 
         .producto-rrss-card h3 {
-            font-size: 1em;
-            margin: 10px 0;
+            font-size: 16px;
+            font-weight: 600;
             color: #333;
+            margin: 0;
+            line-height: 1.3;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
         }
 
         .producto-rrss-card .precio {
-            font-size: 1.2em;
-            color: #667eea;
-            font-weight: bold;
-            margin: 10px 0;
+            font-size: 18px;
+            font-weight: 700;
+            color: #bc1888;
+            margin: 0;
+        }
+
+        .producto-rrss-card .categoria {
+            font-size: 12px;
+            color: #666;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .redes-contadores {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+
+        .instagram-contador-badge {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 10px;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            border-radius: 15px;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .facebook-contador-badge {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 10px;
+            background: #1877F2;
+            border-radius: 15px;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .instagram-contador-badge svg,
+        .facebook-contador-badge svg {
+            width: 14px;
+            height: 14px;
         }
 
         .rrss-buttons {
@@ -848,35 +928,35 @@
         </div>
 
         <div class="sidebar-menu">
-            <div class="menu-item active" onclick="showSection('inicio')">
+            <div class="menu-item active" onclick="showSection('inicio', this)">
                 <span class="menu-item-icon">🏠</span>
                 <span>Inicio</span>
             </div>
-            <div class="menu-item" onclick="showSection('pedidos')">
+            <div class="menu-item" onclick="showSection('pedidos', this)">
                 <span class="menu-item-icon">📋</span>
                 <span>Pedidos</span>
             </div>
-            <div class="menu-item" onclick="showSection('productos')">
+            <div class="menu-item" onclick="showSection('productos', this)">
                 <span class="menu-item-icon">📦</span>
                 <span>Productos</span>
             </div>
-            <div class="menu-item" onclick="showSection('descuentos')">
+            <div class="menu-item" onclick="showSection('descuentos', this)">
                 <span class="menu-item-icon">🎟️</span>
                 <span>Descuentos</span>
             </div>
-            <div class="menu-item" onclick="showSection('clientes')">
+            <div class="menu-item" onclick="showSection('clientes', this)">
                 <span class="menu-item-icon">👥</span>
                 <span>Clientes</span>
             </div>
-            <div class="menu-item" onclick="showSection('tickets')">
+            <div class="menu-item" onclick="showSection('tickets', this)">
                 <span class="menu-item-icon">🎫</span>
                 <span>Tickets de Soporte</span>
             </div>
-            <div class="menu-item" onclick="showSection('marketing')">
+            <div class="menu-item" onclick="showSection('marketing', this)">
                 <span class="menu-item-icon">📧</span>
                 <span>Marketing</span>
             </div>
-            <div class="menu-item" onclick="showSection('analiticas')">
+            <div class="menu-item" onclick="showSection('analiticas', this)">
                 <span class="menu-item-icon">📊</span>
                 <span>Analíticas</span>
             </div>
@@ -1141,16 +1221,79 @@
                 </div>
 
                 <!-- Marketing RRSS -->
-                <div id="marketing-rrss" class="marketing-tab" style="display: none;">
+                <div id="marketing-rrss" class="marketing-tab">
                     <div class="card">
                         <div class="card-header">
-                            <h2>📱 Compartir Productos en Redes Sociales</h2>
+                            <h2>📱 Compartir Productos en Instagram</h2>
                             <button class="refresh-btn" onclick="cargarProductosRRSS()">🔄 Actualizar</button>
                         </div>
 
-                        <div id="productos-rrss-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; padding: 20px;">
-                            <!-- Productos se cargarán aquí -->
+                        <!-- Buscador y Filtros -->
+                        <div style="padding: 20px; border-bottom: 1px solid #e0e0e0;">
+                            <div style="display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
+                                <div style="flex: 1; min-width: 250px;">
+                                    <input type="text" id="buscar-producto-rrss" placeholder="🔍 Buscar producto por nombre..."
+                                        style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px;"
+                                        oninput="filtrarProductosRRSS()">
+                                </div>
+                                <div style="flex: 1; min-width: 200px;">
+                                    <select id="filtro-categoria-rrss"
+                                        style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; cursor: pointer;"
+                                        onchange="filtrarProductosRRSS()">
+                                        <option value="">📂 Todas las categorías</option>
+                                    </select>
+                                </div>
+                                <div style="flex: 1; min-width: 200px;">
+                                    <select id="ordenar-productos-rrss"
+                                        style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; cursor: pointer;"
+                                        onchange="filtrarProductosRRSS()">
+                                        <option value="nombre">📝 Ordenar por nombre</option>
+                                        <option value="mas-compartidos">📸 Más compartidos</option>
+                                        <option value="menos-compartidos">📷 Menos compartidos</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
+
+                        <!-- Controles de selección -->
+                        <div style="padding: 20px; border-bottom: 1px solid #e0e0e0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                            <div style="display: flex; gap: 15px; align-items: center;">
+                                <button class="btn-secondary" onclick="toggleSelectAllProductosRRSS()">
+                                    <span id="btn-select-all-text">Seleccionar Todos</span>
+                                </button>
+                                <span id="contador-seleccionados" style="color: #666; font-weight: 500;">0 producto(s) seleccionado(s)</span>
+                                <span id="contador-filtrados" style="color: #999; font-size: 13px;"></span>
+                            </div>
+                            <div style="display: flex; gap: 10px;">
+                                <button class="btn-secondary" onclick="mostrarHistorialPublicaciones()" style="background: #667eea; color: white;">
+                                    📋 Historial
+                                </button>
+                                <button class="btn-primary" onclick="publicarProductosSeleccionadosInstagram()" id="btn-publicar-instagram" disabled>
+                                    📷 Compartir en RRSS (<span id="contador-btn">0</span>)
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Campo de texto personalizado -->
+                        <div style="padding: 20px; border-bottom: 1px solid #e0e0e0;">
+                            <label style="display: block; margin-bottom: 8px; font-weight: 500; color: #333;">Texto personalizado (opcional):</label>
+                            <textarea id="texto-instagram-multiple" placeholder="Escribe un texto para todas las publicaciones o déjalo vacío para usar el texto por defecto..." style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; font-family: inherit; resize: vertical; min-height: 80px;"></textarea>
+                        </div>
+
+                        <!-- Productos en Grid -->
+                        <div id="productos-rrss-container" style="padding: 20px;">
+                            <div id="productos-rrss-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; min-height: 400px;">
+                                <p style="color: #999; font-size: 16px; grid-column: 1 / -1; text-align: center;">Cargando productos...</p>
+                            </div>
+                        </div>
+
+                        <!-- Paginación -->
+                        <div id="paginacion-rrss" style="display: flex; justify-content: center; align-items: center; gap: 10px; padding: 20px; border-top: 1px solid #e0e0e0;">
+                            <!-- Los controles de paginación se cargarán aquí -->
+                        </div>
+
+                        <!-- Estado de publicación -->
+                        <div id="publicacion-status" style="display: none; margin: 20px; padding: 15px; border-radius: 8px; background: #f5f5f5;"></div>
                     </div>
                 </div>
             </div>
@@ -1783,48 +1926,52 @@
 
     <script>
         // Función para cambiar entre secciones
-        function showSection(sectionId) {
-            console.log('🔄 Cambiando a sección:', sectionId);
+        function showSection(sectionId, clickedElement) {
+            console.log('🔄 Cambiando a sección:', sectionId, 'Elemento:', clickedElement);
 
-            // Ocultar todas las secciones
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-                section.style.cssText = ''; // Limpiar estilos inline
-            });
+            try {
+                // Ocultar todas las secciones
+                document.querySelectorAll('.section').forEach(section => {
+                    section.classList.remove('active');
+                    section.style.display = 'none';
+                });
 
-            // Mostrar la sección seleccionada
-            const targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                targetSection.classList.add('active');
-
-                // HACK temporal: Forzar visibilidad para tickets
-                if (sectionId === 'tickets') {
+                // Mostrar la sección seleccionada
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
                     targetSection.style.display = 'block';
-                    targetSection.style.minHeight = '100vh';
+                    console.log('✅ Sección activada:', sectionId);
+                } else {
+                    console.error('❌ No se encontró la sección:', sectionId);
+                    return;
                 }
 
-                console.log('✅ Sección activada:', sectionId);
-            } else {
-                console.error('❌ No se encontró la sección:', sectionId);
-            }
+                // Actualizar el menú activo
+                document.querySelectorAll('.menu-item').forEach(item => {
+                    item.classList.remove('active');
+                });
 
-            // Actualizar el menú activo
-            document.querySelectorAll('.menu-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            event.currentTarget.classList.add('active');
+                // Marcar el elemento clickeado como activo
+                if (clickedElement) {
+                    clickedElement.classList.add('active');
+                    console.log('✅ Menu item marcado como activo');
+                }
 
-            // Cargar datos específicos de la sección
-            if (sectionId === 'tickets') {
-                cargarTickets();
-            } else if (sectionId === 'pedidos') {
-                cargarPedidos();
-            } else if (sectionId === 'productos') {
-                cargarProductos();
-            } else if (sectionId === 'descuentos') {
-                cargarDescuentos();
-            } else if (sectionId === 'clientes') {
-                cargarClientes();
+                // Cargar datos específicos de la sección
+                if (sectionId === 'tickets') {
+                    cargarTickets();
+                } else if (sectionId === 'pedidos') {
+                    cargarPedidos();
+                } else if (sectionId === 'productos') {
+                    cargarProductos();
+                } else if (sectionId === 'descuentos') {
+                    cargarDescuentos();
+                } else if (sectionId === 'clientes') {
+                    cargarClientes();
+                }
+            } catch (error) {
+                console.error('❌ Error en showSection:', error);
             }
         }
 
@@ -4997,6 +5144,7 @@
 
         // Cambiar entre pestañas de marketing
         function showMarketingTab(tab) {
+            console.log('Cambiando a pestaña:', tab);
             // Ocultar todas las pestañas
             document.querySelectorAll('.marketing-tab').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -5009,6 +5157,7 @@
             if (tab === 'correo') {
                 cargarClientesMarketing();
             } else if (tab === 'rrss') {
+                console.log('Cargando productos RRSS...');
                 cargarProductosRRSS();
             }
         }
@@ -5183,38 +5332,486 @@
             }
         }
 
+        // Variables para gestión de selección de productos RRSS
+        let productosSeleccionadosRRSS = [];
+        let todosLosProductosRRSS = [];
+        let productosFiltradosRRSS = [];
+        let paginaActualRRSS = 1;
+        const productosPorPaginaRRSS = 9;
+
         // Cargar productos para RRSS
         async function cargarProductosRRSS() {
+            console.log('Iniciando carga de productos...');
             try {
                 const response = await fetch('/api/productos', {
                     credentials: 'include'
                 });
+                console.log('Response status:', response.status);
                 const productos = await response.json();
+                console.log('Productos cargados:', productos.length);
+                todosLosProductosRRSS = productos;
+                productosFiltradosRRSS = productos;
+
+                // Cargar categorías únicas
+                const categoriasUnicas = [...new Set(productos.map(p => p.categoria))].sort();
+                const selectCategoria = document.getElementById('filtro-categoria-rrss');
+                selectCategoria.innerHTML = '<option value="">📂 Todas las categorías</option>' +
+                    categoriasUnicas.map(cat => `<option value="${cat}">${cat.charAt(0).toUpperCase() + cat.slice(1)}</option>`).join('');
 
                 const grid = document.getElementById('productos-rrss-grid');
+                console.log('Grid element:', grid);
 
                 if (productos.length === 0) {
-                    grid.innerHTML = '<p style="text-align: center; color: #999; grid-column: 1/-1;">No hay productos disponibles</p>';
+                    grid.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; color: #999;">No hay productos disponibles</p>';
                     return;
                 }
 
-                grid.innerHTML = productos.map(producto => {
+                console.log('Renderizando productos...');
+                renderizarProductosRRSS(productos);
+                actualizarContadores();
+            } catch (error) {
+                console.error('Error cargando productos:', error);
+                const grid = document.getElementById('productos-rrss-grid');
+                grid.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; color: #f44336;">Error al cargar productos: ' + error.message + '</p>';
+            }
+        }
+
+        // Renderizar productos en el grid con paginación
+        function renderizarProductosRRSS(productos) {
+            const grid = document.getElementById('productos-rrss-grid');
+
+            if (productos.length === 0) {
+                grid.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; color: #999; padding: 40px;">No se encontraron productos con los filtros seleccionados</p>';
+                document.getElementById('paginacion-rrss').innerHTML = '';
+                return;
+            }
+
+            // Calcular productos para la página actual
+            const inicio = (paginaActualRRSS - 1) * productosPorPaginaRRSS;
+            const fin = inicio + productosPorPaginaRRSS;
+            const productosPagina = productos.slice(inicio, fin);
+
+            grid.innerHTML = productosPagina.map(producto => {
                     const imagen = producto.variantes?.[0]?.imagenes?.[0] || producto.imagenes?.[0] || producto.imagen || 'https://via.placeholder.com/300';
+                    const instagramShares = producto.instagramShares || 0;
+                    const facebookShares = producto.facebookShares || 0;
+                    const isSelected = productosSeleccionadosRRSS.includes(producto.id);
+
                     return `
-                        <div class="producto-rrss-card">
+                        <div class="producto-rrss-card ${isSelected ? 'seleccionado' : ''}" data-producto-id="${producto.id}" onclick="toggleProductoRRSS(${producto.id})">
+                            <div class="checkbox-container">
+                                <input type="checkbox" ${isSelected ? 'checked' : ''} onclick="event.stopPropagation(); toggleProductoRRSS(${producto.id})">
+                            </div>
                             <img src="${imagen}" alt="${producto.nombre}">
-                            <h3>${producto.nombre}</h3>
-                            <p class="precio">€${producto.precio.toFixed(2)}</p>
-                            <button class="btn-primary" style="width: 100%;" onclick='abrirModalRRSS(${JSON.stringify(producto)})'>
-                                📱 Compartir
-                            </button>
+                            <div>
+                                <h3>${producto.nombre}</h3>
+                                <p class="precio">€${producto.precio.toFixed(2)}</p>
+                                <p class="categoria">${producto.categoria}</p>
+                                <div class="redes-contadores">
+                                    <div class="instagram-contador-badge">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                        </svg>
+                                        <span>${instagramShares}</span>
+                                    </div>
+                                    <div class="facebook-contador-badge">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                        </svg>
+                                        <span>${facebookShares}</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     `;
                 }).join('');
-            } catch (error) {
-                console.error('Error cargando productos:', error);
-                document.getElementById('productos-rrss-grid').innerHTML = '<p style="text-align: center; color: #f44336; grid-column: 1/-1;">Error al cargar productos</p>';
+
+            console.log('Productos renderizados correctamente');
+
+            // Renderizar controles de paginación
+            renderizarPaginacion(productos.length);
+        }
+
+        // Renderizar controles de paginación
+        function renderizarPaginacion(totalProductos) {
+            const totalPaginas = Math.ceil(totalProductos / productosPorPaginaRRSS);
+            const paginacionDiv = document.getElementById('paginacion-rrss');
+
+            if (totalPaginas <= 1) {
+                paginacionDiv.innerHTML = '';
+                return;
             }
+
+            let htmlPaginacion = '';
+
+            // Botón anterior
+            if (paginaActualRRSS > 1) {
+                htmlPaginacion += `<button onclick="cambiarPaginaRRSS(${paginaActualRRSS - 1})" class="btn-secondary" style="padding: 8px 16px;">← Anterior</button>`;
+            }
+
+            // Números de página
+            const maxBotones = 5;
+            let inicio = Math.max(1, paginaActualRRSS - Math.floor(maxBotones / 2));
+            let fin = Math.min(totalPaginas, inicio + maxBotones - 1);
+
+            if (fin - inicio < maxBotones - 1) {
+                inicio = Math.max(1, fin - maxBotones + 1);
+            }
+
+            if (inicio > 1) {
+                htmlPaginacion += `<button onclick="cambiarPaginaRRSS(1)" class="btn-secondary" style="padding: 8px 12px;">1</button>`;
+                if (inicio > 2) {
+                    htmlPaginacion += `<span style="padding: 8px;">...</span>`;
+                }
+            }
+
+            for (let i = inicio; i <= fin; i++) {
+                if (i === paginaActualRRSS) {
+                    htmlPaginacion += `<button class="btn-primary" style="padding: 8px 12px;">${i}</button>`;
+                } else {
+                    htmlPaginacion += `<button onclick="cambiarPaginaRRSS(${i})" class="btn-secondary" style="padding: 8px 12px;">${i}</button>`;
+                }
+            }
+
+            if (fin < totalPaginas) {
+                if (fin < totalPaginas - 1) {
+                    htmlPaginacion += `<span style="padding: 8px;">...</span>`;
+                }
+                htmlPaginacion += `<button onclick="cambiarPaginaRRSS(${totalPaginas})" class="btn-secondary" style="padding: 8px 12px;">${totalPaginas}</button>`;
+            }
+
+            // Botón siguiente
+            if (paginaActualRRSS < totalPaginas) {
+                htmlPaginacion += `<button onclick="cambiarPaginaRRSS(${paginaActualRRSS + 1})" class="btn-secondary" style="padding: 8px 16px;">Siguiente →</button>`;
+            }
+
+            // Info de página actual
+            htmlPaginacion += `<span style="color: #666; margin-left: 15px;">Página ${paginaActualRRSS} de ${totalPaginas}</span>`;
+
+            paginacionDiv.innerHTML = htmlPaginacion;
+        }
+
+        // Cambiar página
+        function cambiarPaginaRRSS(nuevaPagina) {
+            paginaActualRRSS = nuevaPagina;
+            renderizarProductosRRSS(productosFiltradosRRSS);
+            // Scroll al inicio del contenedor
+            document.getElementById('productos-rrss-container').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Filtrar productos por búsqueda, categoría y ordenamiento
+        function filtrarProductosRRSS() {
+            const textoBusqueda = document.getElementById('buscar-producto-rrss').value.toLowerCase().trim();
+            const categoriaSeleccionada = document.getElementById('filtro-categoria-rrss').value;
+            const ordenamiento = document.getElementById('ordenar-productos-rrss').value;
+
+            // Filtrar
+            productosFiltradosRRSS = todosLosProductosRRSS.filter(producto => {
+                const coincideNombre = producto.nombre.toLowerCase().includes(textoBusqueda);
+                const coincideCategoria = !categoriaSeleccionada || producto.categoria === categoriaSeleccionada;
+                return coincideNombre && coincideCategoria;
+            });
+
+            // Ordenar
+            if (ordenamiento === 'mas-compartidos') {
+                productosFiltradosRRSS.sort((a, b) => (b.instagramShares || 0) - (a.instagramShares || 0));
+            } else if (ordenamiento === 'menos-compartidos') {
+                productosFiltradosRRSS.sort((a, b) => (a.instagramShares || 0) - (b.instagramShares || 0));
+            } else {
+                // Ordenar por nombre
+                productosFiltradosRRSS.sort((a, b) => a.nombre.localeCompare(b.nombre));
+            }
+
+            // Resetear a la primera página cuando se filtran/ordenan productos
+            paginaActualRRSS = 1;
+
+            renderizarProductosRRSS(productosFiltradosRRSS);
+
+            // Actualizar contador de productos filtrados
+            const contadorFiltrados = document.getElementById('contador-filtrados');
+            if (productosFiltradosRRSS.length < todosLosProductosRRSS.length) {
+                contadorFiltrados.textContent = `(${productosFiltradosRRSS.length} de ${todosLosProductosRRSS.length})`;
+            } else {
+                contadorFiltrados.textContent = '';
+            }
+        }
+
+        // Toggle selección de producto
+        function toggleProductoRRSS(productoId) {
+            const index = productosSeleccionadosRRSS.indexOf(productoId);
+            if (index > -1) {
+                productosSeleccionadosRRSS.splice(index, 1);
+            } else {
+                productosSeleccionadosRRSS.push(productoId);
+            }
+
+            // Actualizar UI
+            const card = document.querySelector(`.producto-rrss-card[data-producto-id="${productoId}"]`);
+            const checkbox = card.querySelector('input[type="checkbox"]');
+
+            if (productosSeleccionadosRRSS.includes(productoId)) {
+                card.classList.add('seleccionado');
+                checkbox.checked = true;
+            } else {
+                card.classList.remove('seleccionado');
+                checkbox.checked = false;
+            }
+
+            actualizarContadores();
+        }
+
+        // Seleccionar/Deseleccionar todos los productos (solo los visibles/filtrados)
+        function toggleSelectAllProductosRRSS() {
+            const idsProductosFiltrados = productosFiltradosRRSS.map(p => p.id);
+            const todosSeleccionados = idsProductosFiltrados.every(id => productosSeleccionadosRRSS.includes(id));
+
+            if (todosSeleccionados) {
+                // Deseleccionar todos los filtrados
+                productosSeleccionadosRRSS = productosSeleccionadosRRSS.filter(id => !idsProductosFiltrados.includes(id));
+                document.querySelectorAll('.producto-rrss-card').forEach(card => {
+                    card.classList.remove('seleccionado');
+                    card.querySelector('input[type="checkbox"]').checked = false;
+                });
+                document.getElementById('btn-select-all-text').textContent = 'Seleccionar Todos';
+            } else {
+                // Seleccionar todos los filtrados
+                idsProductosFiltrados.forEach(id => {
+                    if (!productosSeleccionadosRRSS.includes(id)) {
+                        productosSeleccionadosRRSS.push(id);
+                    }
+                });
+                document.querySelectorAll('.producto-rrss-card').forEach(card => {
+                    card.classList.add('seleccionado');
+                    card.querySelector('input[type="checkbox"]').checked = true;
+                });
+                document.getElementById('btn-select-all-text').textContent = 'Deseleccionar Todos';
+            }
+
+            actualizarContadores();
+        }
+
+        // Actualizar contadores de selección
+        function actualizarContadores() {
+            const count = productosSeleccionadosRRSS.length;
+            const contadorSeleccionados = document.getElementById('contador-seleccionados');
+            const contadorBtn = document.getElementById('contador-btn');
+            const btnPublicar = document.getElementById('btn-publicar-instagram');
+
+            if (contadorSeleccionados) {
+                contadorSeleccionados.textContent = `${count} producto(s) seleccionado(s)`;
+            }
+            if (contadorBtn) {
+                contadorBtn.textContent = count;
+            }
+            if (btnPublicar) {
+                btnPublicar.disabled = count === 0;
+            }
+
+            // Verificar si todos los productos filtrados están seleccionados
+            const idsProductosFiltrados = productosFiltradosRRSS.map(p => p.id);
+            const todosSeleccionados = idsProductosFiltrados.length > 0 &&
+                                      idsProductosFiltrados.every(id => productosSeleccionadosRRSS.includes(id));
+
+            const btnSelectAllText = document.getElementById('btn-select-all-text');
+            if (btnSelectAllText) {
+                if (todosSeleccionados) {
+                    btnSelectAllText.textContent = 'Deseleccionar Todos';
+                } else {
+                    btnSelectAllText.textContent = 'Seleccionar Todos';
+                }
+            }
+        }
+
+        // Publicar productos seleccionados en Instagram
+        async function publicarProductosSeleccionadosInstagram() {
+            if (productosSeleccionadosRRSS.length === 0) {
+                alert('Selecciona al menos un producto');
+                return;
+            }
+
+            const textoPersonalizado = document.getElementById('texto-instagram-multiple').value;
+            const statusDiv = document.getElementById('publicacion-status');
+            const btnPublicar = document.getElementById('btn-publicar-instagram');
+
+            btnPublicar.disabled = true;
+            btnPublicar.innerHTML = '⏳ Publicando...';
+            statusDiv.style.display = 'block';
+            statusDiv.style.background = '#e3f2fd';
+            statusDiv.style.color = '#1976d2';
+            statusDiv.innerHTML = `⏳ Publicando ${productosSeleccionadosRRSS.length} producto(s) en Instagram...`;
+
+            const resultados = [];
+
+            for (const productoId of productosSeleccionadosRRSS) {
+                const producto = todosLosProductosRRSS.find(p => p.id === productoId);
+                if (!producto) continue;
+
+                // Recopilar todas las imágenes del producto
+                const imagenesProducto = [];
+
+                // Función para validar que no sea placeholder
+                const esImagenValida = (url) => {
+                    if (!url) return false;
+                    if (url.includes('placeholder.com')) return false;
+                    if (url.includes('text=Sin')) return false;
+                    return true;
+                };
+
+                // Agregar imágenes principales
+                if (producto.imagenes && producto.imagenes.length > 0) {
+                    producto.imagenes.forEach(img => {
+                        if (esImagenValida(img) && !imagenesProducto.includes(img)) {
+                            imagenesProducto.push(img);
+                        }
+                    });
+                }
+
+                // Agregar imágenes de variantes
+                if (producto.variantes && producto.variantes.length > 0) {
+                    producto.variantes.forEach(variante => {
+                        if (variante.imagenes && variante.imagenes.length > 0) {
+                            variante.imagenes.forEach(img => {
+                                if (esImagenValida(img) && !imagenesProducto.includes(img)) {
+                                    imagenesProducto.push(img);
+                                }
+                            });
+                        }
+                    });
+                }
+
+                // Si tiene imagen única, agregarla
+                if (producto.imagen && esImagenValida(producto.imagen) && !imagenesProducto.includes(producto.imagen)) {
+                    imagenesProducto.push(producto.imagen);
+                }
+
+                if (imagenesProducto.length === 0) {
+                    resultados.push({
+                        producto: producto.nombre,
+                        exito: false,
+                        error: 'No tiene imagen disponible'
+                    });
+                    continue;
+                }
+
+                // Determinar género según categoría padre
+                let genero = '';
+                if (producto.rutaCategoria) {
+                    if (producto.rutaCategoria.toLowerCase().includes('mujer')) {
+                        genero = 'Mujer';
+                    } else if (producto.rutaCategoria.toLowerCase().includes('hombre')) {
+                        genero = 'Hombre';
+                    }
+                } else if (producto.descripcion) {
+                    if (producto.descripcion.toLowerCase().includes('mujer')) {
+                        genero = 'Mujer';
+                    } else if (producto.descripcion.toLowerCase().includes('hombre')) {
+                        genero = 'Hombre';
+                    }
+                }
+
+                const caption = textoPersonalizado ||
+                    `🆕 Nueva llegada 🔥
+¡Descubre nuestras nuev@s ${producto.categoria}, las llamamos... ${producto.nombre}! 🏃‍♂️👟
+
+Comodidad, estilo y rendimiento en cada paso. 💥
+
+${genero ? `Género: ${genero}` : ''}
+✨ Disponible en diferentes tallas.
+🎨 Varios Colores
+📦 Envíos a todo el país / 🚚 Entrega rápida en 24h
+👇 ¡Consíguelas ya!
+
+Web: https://www.Shoelandia.es
+
+#Zapatillas #Sneakers #Tendencia #ModaUrbana #StreetStyle #OutfitDelDía #Streetwear #Moda2025 #SneakerAddict #SneakerLovers`;
+
+                try {
+                    // Publicar en Instagram
+                    const response = await fetch('/api/instagram/publicar', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        credentials: 'include',
+                        body: JSON.stringify({
+                            producto: producto,
+                            texto: caption,
+                            imagenesUrls: imagenesProducto
+                        })
+                    });
+
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        throw new Error(errorData.mensaje || errorData.error || 'Error al publicar');
+                    }
+
+                    const data = await response.json();
+
+                    // Incrementar contadores según qué se publicó
+                    const instagramPublicado = data.postId ? true : false;
+                    const facebookPublicado = data.mensaje && data.mensaje.includes('Facebook');
+
+                    await fetch(`/api/productos/${productoId}/instagram-share`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        credentials: 'include',
+                        body: JSON.stringify({
+                            instagram: instagramPublicado,
+                            facebook: facebookPublicado
+                        })
+                    });
+
+                    resultados.push({
+                        producto: producto.nombre,
+                        exito: true,
+                        postId: data.postId
+                    });
+
+                } catch (err) {
+                    resultados.push({
+                        producto: producto.nombre,
+                        exito: false,
+                        error: err.message
+                    });
+                }
+            }
+
+            // Recargar productos para actualizar contadores
+            await cargarProductosRRSS();
+
+            // Mostrar resultados
+            const exitosos = resultados.filter(r => r.exito).length;
+            const fallidos = resultados.filter(r => !r.exito).length;
+
+            let htmlResultados = '<div style="line-height: 1.6;">';
+
+            if (exitosos > 0) {
+                htmlResultados += `<div style="color: #2e7d32; font-weight: bold; margin-bottom: 10px;">✅ ${exitosos} producto(s) publicado(s) exitosamente</div>`;
+            }
+
+            if (fallidos > 0) {
+                htmlResultados += `<div style="color: #c62828; font-weight: bold; margin-bottom: 10px;">❌ ${fallidos} producto(s) fallaron</div>`;
+                htmlResultados += '<div style="font-size: 13px; color: #666; margin-top: 10px;"><strong>Errores:</strong><ul style="margin: 5px 0; padding-left: 20px;">';
+                resultados.filter(r => !r.exito).forEach(r => {
+                    htmlResultados += `<li>${r.producto}: ${r.error}</li>`;
+                });
+                htmlResultados += '</ul></div>';
+            }
+
+            htmlResultados += '</div>';
+
+            statusDiv.style.background = exitosos > 0 ? '#e8f5e9' : '#ffebee';
+            statusDiv.style.color = exitosos > 0 ? '#2e7d32' : '#c62828';
+            statusDiv.innerHTML = htmlResultados;
+
+            // Limpiar selección
+            productosSeleccionadosRRSS = [];
+            document.getElementById('texto-instagram-multiple').value = '';
+            btnPublicar.disabled = false;
+            btnPublicar.innerHTML = '📷 Compartir en RRSS (<span id="contador-btn">0</span>)';
+
+            // Recargar la vista para reflejar los cambios
+            await cargarProductosRRSS();
         }
 
         // Abrir modal de RRSS
@@ -5316,6 +5913,151 @@
         }
 
         // ==================== FIN GESTIÓN DE MARKETING ====================
+
+        // ==================== HISTORIAL DE PUBLICACIONES ====================
+
+        async function mostrarHistorialPublicaciones() {
+            try {
+                const response = await fetch('/api/publicaciones', {
+                    credentials: 'include'
+                });
+
+                if (!response.ok) {
+                    throw new Error('Error al cargar el historial');
+                }
+
+                const publicaciones = await response.json();
+
+                // Crear modal
+                const modal = document.createElement('div');
+                modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 10000;';
+
+                const modalContent = document.createElement('div');
+                modalContent.style.cssText = 'background: white; width: 90%; max-width: 1000px; max-height: 80vh; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;';
+
+                modalContent.innerHTML = `
+                    <div style="padding: 20px; border-bottom: 1px solid #e0e0e0; display: flex; justify-content: space-between; align-items: center;">
+                        <h2 style="margin: 0; color: #333;">📋 Historial de Publicaciones</h2>
+                        <button onclick="this.closest('[style*=fixed]').remove()" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #666;">×</button>
+                    </div>
+                    <div style="padding: 20px; overflow-y: auto; flex: 1;">
+                        ${publicaciones.length === 0 ?
+                            '<p style="text-align: center; color: #999; padding: 40px;">No hay publicaciones en el historial</p>' :
+                            publicaciones.map(pub => `
+                                <div style="border: 1px solid #e0e0e0; border-radius: 8px; padding: 15px; margin-bottom: 15px; display: flex; gap: 15px;">
+                                    <img src="${pub.producto.imagen || 'https://via.placeholder.com/100'}" alt="${pub.producto.nombre}" style="width: 100px; height: 100px; object-fit: cover; border-radius: 6px;">
+                                    <div style="flex: 1;">
+                                        <h4 style="margin: 0 0 8px 0; color: #333;">${pub.producto.nombre}</h4>
+                                        <p style="margin: 0 0 8px 0; color: #666; font-size: 13px;">
+                                            📅 ${new Date(pub.fecha).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
+                                        </p>
+                                        <div style="display: flex; gap: 10px; margin-bottom: 8px;">
+                                            ${pub.redes.instagram.publicado ? '<span style="background: #E1306C; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px;">📷 Instagram</span>' : ''}
+                                            ${pub.redes.facebook.publicado ? '<span style="background: #1877F2; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px;">📘 Facebook</span>' : ''}
+                                        </div>
+                                        <details style="margin-top: 8px;">
+                                            <summary style="cursor: pointer; color: #667eea; font-size: 13px;">Ver texto de publicación</summary>
+                                            <p style="margin: 8px 0 0 0; padding: 8px; background: #f5f5f5; border-radius: 4px; font-size: 13px; white-space: pre-wrap;">${pub.texto}</p>
+                                        </details>
+                                    </div>
+                                    <div style="display: flex; flex-direction: column; gap: 8px; min-width: 150px;">
+                                        ${pub.redes.instagram.publicado ? `
+                                            <button onclick="eliminarPublicacion(${pub.id}, 'instagram')" style="background: #E1306C; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 13px;">
+                                                🗑️ Eliminar de Instagram
+                                            </button>
+                                        ` : ''}
+                                        ${pub.redes.facebook.publicado ? `
+                                            <button onclick="eliminarPublicacion(${pub.id}, 'facebook')" style="background: #1877F2; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 13px;">
+                                                🗑️ Eliminar de Facebook
+                                            </button>
+                                        ` : ''}
+                                        ${pub.redes.instagram.publicado && pub.redes.facebook.publicado ? `
+                                            <button onclick="eliminarPublicacion(${pub.id}, 'ambas')" style="background: #dc3545; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 13px;">
+                                                🗑️ Eliminar de ambas
+                                            </button>
+                                        ` : ''}
+                                    </div>
+                                </div>
+                            `).join('')
+                        }
+                    </div>
+                `;
+
+                modal.appendChild(modalContent);
+                document.body.appendChild(modal);
+
+                // Cerrar al hacer clic fuera del modal
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.remove();
+                    }
+                });
+
+            } catch (error) {
+                console.error('Error cargando historial:', error);
+                alert('Error al cargar el historial de publicaciones');
+            }
+        }
+
+        async function eliminarPublicacion(publicacionId, donde) {
+            const redes = donde === 'ambas' ? ['instagram', 'facebook'] : [donde];
+            const textoRedes = donde === 'ambas' ? 'Instagram y Facebook' : donde === 'instagram' ? 'Instagram' : 'Facebook';
+
+            if (!confirm(`¿Estás seguro de que quieres eliminar esta publicación de ${textoRedes}?`)) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/publicaciones/${publicacionId}`, {
+                    method: 'DELETE',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include',
+                    body: JSON.stringify({ eliminarDe: redes })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Error al eliminar la publicación');
+                }
+
+                const data = await response.json();
+
+                let mensaje = '✅ Publicación procesada correctamente';
+
+                // Manejar Instagram
+                if (data.resultados.instagram) {
+                    if (data.resultados.instagram.success) {
+                        if (data.resultados.instagram.warning) {
+                            mensaje += `\n\n📷 Instagram:\n${data.resultados.instagram.warning}`;
+                        } else {
+                            mensaje += `\n✅ Eliminado del historial de Instagram`;
+                        }
+                    } else {
+                        mensaje += `\n⚠️ Error en Instagram: ${data.resultados.instagram.error}`;
+                    }
+                }
+
+                // Manejar Facebook
+                if (data.resultados.facebook) {
+                    if (data.resultados.facebook.success) {
+                        mensaje += `\n✅ Eliminado de Facebook`;
+                    } else {
+                        mensaje += `\n⚠️ Error en Facebook: ${data.resultados.facebook.error}`;
+                    }
+                }
+
+                alert(mensaje);
+
+                // Recargar el modal
+                document.querySelector('[style*="position: fixed"]').remove();
+                mostrarHistorialPublicaciones();
+
+            } catch (error) {
+                console.error('Error eliminando publicación:', error);
+                alert('Error al eliminar la publicación');
+            }
+        }
+
+        // ==================== FIN HISTORIAL DE PUBLICACIONES ====================
 
         // Verificar sesión y cargar datos al inicio
         (async () => {

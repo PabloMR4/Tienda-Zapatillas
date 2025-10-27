@@ -74,7 +74,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "1CD-1695-Multi",
@@ -150,7 +152,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "1CD-1695-Verde",
@@ -226,7 +230,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "2A-1401-Camel",
@@ -302,7 +308,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "2A-1401-Negro",
@@ -378,7 +386,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "7543-Marron",
@@ -399,7 +409,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 4,
+          "stock": 3,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/7/5/7543-Marron_1.jpg"
           ]
@@ -454,7 +464,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "7543-Negro",
@@ -530,7 +542,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "7653A-Beige",
@@ -567,7 +581,7 @@
         {
           "id": 4,
           "talla": "39",
-          "stock": 6,
+          "stock": 5,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/7/6/7653A-Beige_3_1.jpg"
           ]
@@ -575,7 +589,7 @@
         {
           "id": 5,
           "talla": "40",
-          "stock": 2,
+          "stock": 1,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/7/6/7653A-Beige_4_1.jpg"
           ]
@@ -606,7 +620,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "7653A-Burdeos",
@@ -635,7 +651,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 6,
+          "stock": 5,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/7/6/7653A-Burdeos_2_1.jpg"
           ]
@@ -682,7 +698,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "7653A-Negro",
@@ -711,7 +729,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 4,
+          "stock": 3,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/7/6/7653A-Negro_2_1.jpg"
           ]
@@ -758,7 +776,9 @@
         "40",
         "41"
       ],
-      "destacado": true
+      "destacado": true,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "7677A-Negro",
@@ -795,7 +815,7 @@
         {
           "id": 4,
           "talla": "39",
-          "stock": 5,
+          "stock": 4,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/7/6/7677A-Negro_3_1.jpg"
           ]
@@ -834,7 +854,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "8855-Negro",
@@ -910,7 +932,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "A-3305-Apricot",
@@ -947,7 +971,7 @@
         {
           "id": 4,
           "talla": "39",
-          "stock": 1,
+          "stock": 0,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/A/-/A-3305-Apricot_3.jpg"
           ]
@@ -986,7 +1010,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "A-3305-Negro",
@@ -1015,7 +1041,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 2,
+          "stock": 1,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/A/-/A-3305-Negro_2.jpg"
           ]
@@ -1062,7 +1088,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "A-5457-Cafe",
@@ -1083,7 +1111,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 4,
+          "stock": 3,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/A/-/A-5457-Cafe_1.jpg"
           ]
@@ -1138,7 +1166,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "A-5457-Negro",
@@ -1175,7 +1205,7 @@
         {
           "id": 4,
           "talla": "39",
-          "stock": 4,
+          "stock": 3,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/A/-/A-5457-Negro_3.jpg"
           ]
@@ -1214,7 +1244,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "ABX0212-Azul",
@@ -1290,7 +1322,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "ABX0212-Negro",
@@ -1366,7 +1400,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "AD-5237-Rosa",
@@ -1395,7 +1431,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 3,
+          "stock": 2,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/A/D/AD-5237-Rosa_2.jpg"
           ]
@@ -1442,7 +1478,9 @@
         "40",
         "41"
       ],
-      "destacado": true
+      "destacado": true,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "DB-5550-Marron",
@@ -1455,7 +1493,7 @@
         {
           "id": 1,
           "talla": "36",
-          "stock": 2,
+          "stock": 1,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/D/B/DB-5550-Marron_0.jpg"
           ]
@@ -1487,7 +1525,7 @@
         {
           "id": 5,
           "talla": "40",
-          "stock": 5,
+          "stock": 4,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/D/B/DB-5550-Marron_4.jpg"
           ]
@@ -1518,7 +1556,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "DB-5550-Negro",
@@ -1531,7 +1571,7 @@
         {
           "id": 1,
           "talla": "36",
-          "stock": 3,
+          "stock": 2,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/D/B/DB-5550-Negro_0.jpg"
           ]
@@ -1539,7 +1579,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 5,
+          "stock": 3,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/D/B/DB-5550-Negro_1.jpg"
           ]
@@ -1555,7 +1595,7 @@
         {
           "id": 4,
           "talla": "39",
-          "stock": 9,
+          "stock": 6,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/D/B/DB-5550-Negro_3.jpg"
           ]
@@ -1563,7 +1603,7 @@
         {
           "id": 5,
           "talla": "40",
-          "stock": 6,
+          "stock": 5,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/D/B/DB-5550-Negro_4.jpg"
           ]
@@ -1571,7 +1611,7 @@
         {
           "id": 6,
           "talla": "41",
-          "stock": 2,
+          "stock": 1,
           "imagenes": [
             "https://via.placeholder.com/500x700?text=Sin+Imagen"
           ]
@@ -1594,7 +1634,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "EV-100-Blanco-Rojo",
@@ -1670,7 +1712,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "EV-100-Celeste",
@@ -1746,7 +1790,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "EV-100P-Blanco",
@@ -1822,7 +1868,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "EV-100P-Negro",
@@ -1835,7 +1883,7 @@
         {
           "id": 1,
           "talla": "36",
-          "stock": 1,
+          "stock": 0,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/E/V/EV-100P-Negro_0_1.jpg"
           ]
@@ -1843,7 +1891,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 7,
+          "stock": 6,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/E/V/EV-100P-Negro_1_1.jpg"
           ]
@@ -1898,7 +1946,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "EV-225-Azul",
@@ -1973,7 +2023,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "EV-300-Blanco",
@@ -1994,7 +2046,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 10,
+          "stock": 9,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/E/V/EV-300-Blanco_1.jpg"
           ]
@@ -2002,7 +2054,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 5,
+          "stock": 4,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/E/V/EV-300-Blanco_2.jpg"
           ]
@@ -2049,7 +2101,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "EV-300-Jeans",
@@ -2062,7 +2116,7 @@
         {
           "id": 1,
           "talla": "36",
-          "stock": 0,
+          "stock": 1,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/E/V/EV-300-Jeans_0_2.jpg"
           ]
@@ -2070,7 +2124,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 0,
+          "stock": 2,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/E/V/EV-300-Jeans_1_2.jpg"
           ]
@@ -2078,7 +2132,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 0,
+          "stock": 3,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/E/V/EV-300-Jeans_2_2.jpg"
           ]
@@ -2086,7 +2140,7 @@
         {
           "id": 4,
           "talla": "39",
-          "stock": 4,
+          "stock": 7,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/E/V/EV-300-Jeans_3_2.jpg"
           ]
@@ -2094,7 +2148,7 @@
         {
           "id": 5,
           "talla": "40",
-          "stock": 4,
+          "stock": 6,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/E/V/EV-300-Jeans_4_2.jpg"
           ]
@@ -2102,7 +2156,7 @@
         {
           "id": 6,
           "talla": "41",
-          "stock": 1,
+          "stock": 2,
           "imagenes": [
             "https://via.placeholder.com/500x700?text=Sin+Imagen"
           ]
@@ -2125,7 +2179,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "EV-300-Negro",
@@ -2146,7 +2202,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 30,
+          "stock": 29,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/E/V/EV-300-Negro_1_2.jpg"
           ]
@@ -2178,7 +2234,7 @@
         {
           "id": 6,
           "talla": "41",
-          "stock": 3,
+          "stock": 2,
           "imagenes": [
             "https://via.placeholder.com/500x700?text=Sin+Imagen"
           ]
@@ -2201,7 +2257,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "HA-5282-Negro",
@@ -2277,7 +2335,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "HA-5282-Rosa",
@@ -2353,7 +2413,9 @@
         "40",
         "41"
       ],
-      "destacado": true
+      "destacado": true,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "HA-5282-Verde",
@@ -2429,7 +2491,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "HF-3325-Negro",
@@ -2505,7 +2569,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "MT-87-Azul",
@@ -2581,7 +2647,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "N-2117-Oro",
@@ -2610,7 +2678,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 6,
+          "stock": 7,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/N/-/N-2117-Oro_2_4.jpg"
           ]
@@ -2657,7 +2725,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "N-2117-Plata",
@@ -2733,7 +2803,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "PP-15-Beige",
@@ -2809,7 +2881,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "PP-15-Naranja",
@@ -2885,7 +2959,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "SL-762-Blanco",
@@ -2961,7 +3037,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "SL-762-Burdeos",
@@ -2974,7 +3052,7 @@
         {
           "id": 1,
           "talla": "36",
-          "stock": 2,
+          "stock": 1,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/S/L/SL-762-Burdeos_0.jpg"
           ]
@@ -3037,7 +3115,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "SL-762-Gris",
@@ -3113,7 +3193,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "SL-762-Verde",
@@ -3126,7 +3208,7 @@
         {
           "id": 1,
           "talla": "36",
-          "stock": 3,
+          "stock": 1,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/S/L/SL-762-Verde_0.jpg"
           ]
@@ -3134,7 +3216,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 7,
+          "stock": 5,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/S/L/SL-762-Verde_1.jpg"
           ]
@@ -3142,7 +3224,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 6,
+          "stock": 2,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/S/L/SL-762-Verde_2.jpg"
           ]
@@ -3150,7 +3232,7 @@
         {
           "id": 4,
           "talla": "39",
-          "stock": 7,
+          "stock": 5,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/S/L/SL-762-Verde_3.jpg"
           ]
@@ -3158,7 +3240,7 @@
         {
           "id": 5,
           "talla": "40",
-          "stock": 5,
+          "stock": 3,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/S/L/SL-762-Verde_4.jpg"
           ]
@@ -3189,7 +3271,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "TT-200M-Blanco",
@@ -3265,7 +3349,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "TT-55-Cafe",
@@ -3341,7 +3427,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "VRA-1192-Beige",
@@ -3417,7 +3505,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "VRA-1192-Cuero",
@@ -3493,7 +3583,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "VRA-1192-Negro",
@@ -3569,7 +3661,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "VRA-1192-Taupe",
@@ -3645,7 +3739,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "VRA-1192-Verde",
@@ -3721,7 +3817,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "XHS911-Burdeos",
@@ -3797,7 +3895,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "XHS911-Negro",
@@ -3826,7 +3926,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 7,
+          "stock": 6,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/X/H/XHS911-Negro_2.jpg"
           ]
@@ -3834,7 +3934,7 @@
         {
           "id": 4,
           "talla": "39",
-          "stock": 5,
+          "stock": 4,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/X/H/XHS911-Negro_3.jpg"
           ]
@@ -3842,7 +3942,7 @@
         {
           "id": 5,
           "talla": "40",
-          "stock": 7,
+          "stock": 6,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/X/H/XHS911-Negro_4.jpg"
           ]
@@ -3873,7 +3973,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "XQ-908-Camel",
@@ -3958,7 +4060,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "XX-83-Beige",
@@ -4034,7 +4138,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "XX-83-Negro",
@@ -4110,7 +4216,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "XX-83-Verde",
@@ -4186,7 +4294,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "YK323-Beige",
@@ -4262,7 +4372,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "YK323-Negro",
@@ -4291,7 +4403,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 11,
+          "stock": 10,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/Y/K/YK323-Negro_2.jpg"
           ]
@@ -4338,7 +4450,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "YK323-Oro",
@@ -4414,7 +4528,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "YY-108-Azul",
@@ -4435,7 +4551,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 5,
+          "stock": 4,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/Y/Y/YY-108-Azul_1_1.jpg"
           ]
@@ -4490,7 +4606,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "YY-108-Blanco",
@@ -4511,7 +4629,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 7,
+          "stock": 4,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/Y/Y/YY-108-Blanco_1_1.jpg"
           ]
@@ -4566,7 +4684,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "YY-108-Fucsia",
@@ -4642,7 +4762,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "YY-108-Leopardo",
@@ -4663,7 +4785,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 5,
+          "stock": 4,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/Y/Y/YY-108-Leopardo_1.jpg"
           ]
@@ -4671,7 +4793,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 5,
+          "stock": 4,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/Y/Y/YY-108-Leopardo_2.jpg"
           ]
@@ -4687,7 +4809,7 @@
         {
           "id": 5,
           "talla": "40",
-          "stock": 5,
+          "stock": 4,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/Y/Y/YY-108-Leopardo_4.jpg"
           ]
@@ -4718,7 +4840,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "YY-108-Lila",
@@ -4739,7 +4863,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 13,
+          "stock": 12,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/Y/Y/YY-108-Lila_1_1.jpg"
           ]
@@ -4794,7 +4918,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "YY-108-Negro",
@@ -4870,7 +4996,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "YY-108-Rosa",
@@ -4883,7 +5011,7 @@
         {
           "id": 1,
           "talla": "36",
-          "stock": 0,
+          "stock": 1,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/Y/Y/YY-108-Rosa_0_1.jpg"
           ]
@@ -4899,7 +5027,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 4,
+          "stock": 3,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/Y/Y/YY-108-Rosa_2_1.jpg"
           ]
@@ -4946,7 +5074,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "YY-108-Verde",
@@ -4975,7 +5105,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 8,
+          "stock": 7,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/Y/Y/YY-108-Verde_2_1.jpg"
           ]
@@ -4991,7 +5121,7 @@
         {
           "id": 5,
           "talla": "40",
-          "stock": 8,
+          "stock": 7,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/Y/Y/YY-108-Verde_4_1.jpg"
           ]
@@ -5022,7 +5152,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "YZ22-15-Beige",
@@ -5098,7 +5230,9 @@
         "39",
         "40"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "YZ22-15-Marron",
@@ -5174,7 +5308,9 @@
         "39",
         "40"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "YZ22-15-Negro",
@@ -5250,7 +5386,9 @@
         "39",
         "40"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "17-CD-Azul",
@@ -5326,7 +5464,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "1986-10-Beige",
@@ -5363,7 +5503,7 @@
         {
           "id": 4,
           "talla": "39",
-          "stock": 6,
+          "stock": 5,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/1/9/1986-10-Beige_3.jpg"
           ]
@@ -5402,7 +5542,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "1986-10-Camel",
@@ -5423,7 +5565,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 3,
+          "stock": 2,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/1/9/1986-10-Camel_1.jpg"
           ]
@@ -5439,7 +5581,7 @@
         {
           "id": 4,
           "talla": "39",
-          "stock": 7,
+          "stock": 6,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/1/9/1986-10-Camel_3.jpg"
           ]
@@ -5478,7 +5620,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "1986-10-Kaki",
@@ -5491,7 +5635,7 @@
         {
           "id": 1,
           "talla": "36",
-          "stock": 4,
+          "stock": 3,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/1/9/1986-10-Kaki_0.jpg"
           ]
@@ -5499,7 +5643,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 4,
+          "stock": 3,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/1/9/1986-10-Kaki_1.jpg"
           ]
@@ -5515,7 +5659,7 @@
         {
           "id": 4,
           "talla": "39",
-          "stock": 9,
+          "stock": 6,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/1/9/1986-10-Kaki_3.jpg"
           ]
@@ -5554,7 +5698,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "1986-10-Negro",
@@ -5630,7 +5776,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "2000-1-Gris",
@@ -5643,7 +5791,7 @@
         {
           "id": 1,
           "talla": "36",
-          "stock": 2,
+          "stock": 1,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/2/0/2000-1-Gris_0_1.jpg"
           ]
@@ -5706,7 +5854,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "2000-1-Kaki",
@@ -5782,7 +5932,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "2420-Kaki",
@@ -5858,7 +6010,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "2420-Verde",
@@ -5934,7 +6088,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "2AP-1435-Beige",
@@ -6010,7 +6166,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "2AP-1435-Negro",
@@ -6086,7 +6244,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "2DB-2049-Beige",
@@ -6162,7 +6322,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "2DB-2049-Camel",
@@ -6238,7 +6400,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "2DB-2049-Negro",
@@ -6314,7 +6478,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "5538-Cuero",
@@ -6390,7 +6556,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "5Q92-Leopardo",
@@ -6466,7 +6634,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "6BKA-Beige",
@@ -6487,7 +6657,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 9,
+          "stock": 10,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/6/B/6BKA-Beige_1_4.jpg"
           ]
@@ -6511,7 +6681,7 @@
         {
           "id": 5,
           "talla": "40",
-          "stock": 133,
+          "stock": 132,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/6/B/6BKA-Beige_4_4.jpg"
           ]
@@ -6542,7 +6712,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "6BKA-Camel",
@@ -6579,7 +6751,7 @@
         {
           "id": 4,
           "talla": "39",
-          "stock": 50,
+          "stock": 49,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/6/B/6BKA-Camel_3_3.jpg"
           ]
@@ -6587,7 +6759,7 @@
         {
           "id": 5,
           "talla": "40",
-          "stock": 84,
+          "stock": 83,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/6/B/6BKA-Camel_4_3.jpg"
           ]
@@ -6618,7 +6790,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "6BKA-Gris",
@@ -6647,7 +6821,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 28,
+          "stock": 27,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/6/B/6BKA-Gris_2_3.jpg"
           ]
@@ -6694,7 +6868,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "6BKA-Leopardo",
@@ -6770,7 +6946,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "6BKA-Negro",
@@ -6791,7 +6969,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 2,
+          "stock": 1,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/6/B/6BKA-Negro_1_4.jpg"
           ]
@@ -6846,7 +7024,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "6BKA-Verde",
@@ -6922,7 +7102,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "7693-Marron",
@@ -6998,7 +7180,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "7693-Negro",
@@ -7074,7 +7258,9 @@
         "40",
         "41"
       ],
-      "destacado": true
+      "destacado": true,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "7Q9-Kaki",
@@ -7150,7 +7336,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "7Q9-Leopardo",
@@ -7226,7 +7414,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "8468-Negro",
@@ -7239,7 +7429,7 @@
         {
           "id": 1,
           "talla": "36",
-          "stock": 51,
+          "stock": 61,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/8/4/8468-Negro_1_2.jpg"
           ]
@@ -7247,7 +7437,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 10,
+          "stock": 19,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/8/4/8468-Negro_2_2.jpg"
           ]
@@ -7255,7 +7445,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 7,
+          "stock": 21,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/8/4/8468-Negro_3.jpg"
           ]
@@ -7263,7 +7453,7 @@
         {
           "id": 4,
           "talla": "39",
-          "stock": 0,
+          "stock": 11,
           "imagenes": [
             "https://via.placeholder.com/500x700?text=Sin+Imagen"
           ]
@@ -7271,7 +7461,7 @@
         {
           "id": 5,
           "talla": "40",
-          "stock": 6,
+          "stock": 16,
           "imagenes": [
             "https://via.placeholder.com/500x700?text=Sin+Imagen"
           ]
@@ -7279,7 +7469,7 @@
         {
           "id": 6,
           "talla": "41",
-          "stock": 0,
+          "stock": 5,
           "imagenes": [
             "https://via.placeholder.com/500x700?text=Sin+Imagen"
           ]
@@ -7300,7 +7490,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "8908-Beige",
@@ -7376,7 +7568,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "8908-Cafe",
@@ -7452,7 +7646,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "8908-Camel",
@@ -7465,7 +7661,7 @@
         {
           "id": 1,
           "talla": "36",
-          "stock": 1,
+          "stock": 0,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/8/9/8908-Camel_0.jpg"
           ]
@@ -7497,7 +7693,7 @@
         {
           "id": 5,
           "talla": "40",
-          "stock": 7,
+          "stock": 6,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/8/9/8908-Camel_4.jpg"
           ]
@@ -7528,7 +7724,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "8908-Negro",
@@ -7604,7 +7802,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "8S10B-Negro",
@@ -7678,7 +7878,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "9222-Kaki",
@@ -7754,7 +7956,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "9222-Negro",
@@ -7830,7 +8034,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "A-2445-Verde",
@@ -7906,7 +8112,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "A-2509-Beige",
@@ -7982,7 +8190,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "A-3431-Negro",
@@ -8003,7 +8213,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 4,
+          "stock": 3,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/A/-/A-3431-Negro_1.jpg"
           ]
@@ -8058,7 +8268,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "A-3431-Oro",
@@ -8111,7 +8323,7 @@
         {
           "id": 6,
           "talla": "41",
-          "stock": 1,
+          "stock": 0,
           "imagenes": [
             "https://via.placeholder.com/500x700?text=Sin+Imagen"
           ]
@@ -8134,7 +8346,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "A-3433-Verde",
@@ -8210,7 +8424,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "A-5004-Azul",
@@ -8231,7 +8447,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 1,
+          "stock": 0,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/A/-/A-5004-Azul_1.jpg"
           ]
@@ -8239,7 +8455,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 3,
+          "stock": 2,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/A/-/A-5004-Azul_2.jpg"
           ]
@@ -8247,7 +8463,7 @@
         {
           "id": 4,
           "talla": "39",
-          "stock": 9,
+          "stock": 8,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/A/-/A-5004-Azul_3.jpg"
           ]
@@ -8255,7 +8471,7 @@
         {
           "id": 5,
           "talla": "40",
-          "stock": 7,
+          "stock": 6,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/A/-/A-5004-Azul_4.jpg"
           ]
@@ -8263,7 +8479,7 @@
         {
           "id": 6,
           "talla": "41",
-          "stock": 3,
+          "stock": 2,
           "imagenes": [
             "https://via.placeholder.com/500x700?text=Sin+Imagen"
           ]
@@ -8286,7 +8502,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "A-5004-Naranja",
@@ -8323,7 +8541,7 @@
         {
           "id": 4,
           "talla": "39",
-          "stock": 12,
+          "stock": 11,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/A/-/A-5004-Naranja_3.jpg"
           ]
@@ -8331,7 +8549,7 @@
         {
           "id": 5,
           "talla": "40",
-          "stock": 3,
+          "stock": 2,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/A/-/A-5004-Naranja_4.jpg"
           ]
@@ -8362,7 +8580,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "A-5004-Rosa",
@@ -8438,7 +8658,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "A-5428-Negro",
@@ -8483,7 +8705,7 @@
         {
           "id": 5,
           "talla": "40",
-          "stock": 1,
+          "stock": 0,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/A/-/A-5428-Negro_4_2.jpg"
           ]
@@ -8514,7 +8736,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "B-3369-Marron",
@@ -8590,7 +8814,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "B-3369-Negro",
@@ -8603,7 +8829,7 @@
         {
           "id": 1,
           "talla": "36",
-          "stock": 5,
+          "stock": 4,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/B/-/B-3369-Negro_0.jpg"
           ]
@@ -8666,7 +8892,9 @@
         "40",
         "41"
       ],
-      "destacado": true
+      "destacado": true,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "B-3369-Oro",
@@ -8742,7 +8970,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "B6609-Beige",
@@ -8771,7 +9001,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 6,
+          "stock": 5,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/B/6/B6609-Beige_2.jpg"
           ]
@@ -8818,7 +9048,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "B6609-Burdeos",
@@ -8894,7 +9126,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "B6609-Leopardo",
@@ -8970,7 +9204,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "DB-3471-Negro",
@@ -9046,7 +9282,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "DB-3471-Oro",
@@ -9122,7 +9360,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "F2312-Champan",
@@ -9198,7 +9438,9 @@
         "40",
         "41"
       ],
-      "destacado": true
+      "destacado": true,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "F2312-Oro",
@@ -9274,7 +9516,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "FF-3348-Camel",
@@ -9311,7 +9555,7 @@
         {
           "id": 4,
           "talla": "39",
-          "stock": 2,
+          "stock": 1,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/F/F/FF-3348-Camel_3.jpg"
           ]
@@ -9350,7 +9594,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "FF-3348-Negro",
@@ -9387,7 +9633,7 @@
         {
           "id": 4,
           "talla": "39",
-          "stock": 4,
+          "stock": 3,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/F/F/FF-3348-Negro_3.jpg"
           ]
@@ -9395,7 +9641,7 @@
         {
           "id": 5,
           "talla": "40",
-          "stock": 2,
+          "stock": 1,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/F/F/FF-3348-Negro_4.jpg"
           ]
@@ -9426,7 +9672,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "FF-3348-Verde",
@@ -9455,7 +9703,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 6,
+          "stock": 5,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/F/F/FF-3348-Verde_2.jpg"
           ]
@@ -9502,7 +9750,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "GX319-Negro",
@@ -9515,7 +9765,7 @@
         {
           "id": 1,
           "talla": "36",
-          "stock": 49,
+          "stock": 48,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/G/X/GX319-Negro_0.jpg"
           ]
@@ -9523,7 +9773,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 48,
+          "stock": 45,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/G/X/GX319-Negro_1.jpg"
           ]
@@ -9531,7 +9781,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 75,
+          "stock": 72,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/G/X/GX319-Negro_2.jpg"
           ]
@@ -9539,7 +9789,7 @@
         {
           "id": 4,
           "talla": "39",
-          "stock": 50,
+          "stock": 46,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/G/X/GX319-Negro_3.jpg"
           ]
@@ -9547,7 +9797,7 @@
         {
           "id": 5,
           "talla": "40",
-          "stock": 46,
+          "stock": 45,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/G/X/GX319-Negro_4.jpg"
           ]
@@ -9555,7 +9805,7 @@
         {
           "id": 6,
           "talla": "41",
-          "stock": 25,
+          "stock": 19,
           "imagenes": [
             "https://via.placeholder.com/500x700?text=Sin+Imagen"
           ]
@@ -9578,7 +9828,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "HZ2000-103-Camel",
@@ -9654,7 +9906,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "HZ2000-103-Kaki",
@@ -9707,7 +9961,7 @@
         {
           "id": 6,
           "talla": "41",
-          "stock": 2,
+          "stock": 1,
           "imagenes": [
             "https://via.placeholder.com/500x700?text=Sin+Imagen"
           ]
@@ -9730,7 +9984,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "HZ2000-103-Negro",
@@ -9806,7 +10062,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "JC-5019-Beige",
@@ -9882,7 +10140,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "JC-5019-Naranja",
@@ -9958,7 +10218,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "JC-5019-Negro",
@@ -10034,7 +10296,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "JC-5019-Verde",
@@ -10110,7 +10374,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "LT33-46-Cafe",
@@ -10139,7 +10405,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 3,
+          "stock": 2,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/L/T/LT33-46-Cafe_2.jpg"
           ]
@@ -10186,7 +10452,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "LT33-46-Camel",
@@ -10262,7 +10530,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "LT33-46-Gris",
@@ -10338,7 +10608,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "TF3307-Kaki",
@@ -10414,7 +10686,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "TF3307-Negro",
@@ -10490,7 +10764,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "TF3307-Verde",
@@ -10566,7 +10842,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "TF3395-Beige",
@@ -10642,7 +10920,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "TF3395-Negro",
@@ -10718,7 +10998,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "TF3395-Oro",
@@ -10794,7 +11076,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "TT-100-Camel",
@@ -10870,7 +11154,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "TT-100-Verde",
@@ -10915,7 +11201,7 @@
         {
           "id": 5,
           "talla": "40",
-          "stock": 20,
+          "stock": 19,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/T/T/TT-100-Verde_4.jpg"
           ]
@@ -10946,7 +11232,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "VR2-169-Cuero",
@@ -11012,7 +11300,9 @@
         "39",
         "40"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "VR2-169-Negro",
@@ -11078,7 +11368,9 @@
         "39",
         "40"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "VR3-585-Gris",
@@ -11154,7 +11446,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "VR3-585-Negro",
@@ -11230,7 +11524,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "VR3-585-Rosa",
@@ -11306,7 +11602,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "X2502-Negro",
@@ -11382,7 +11680,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "X2502-Rojo",
@@ -11403,7 +11703,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 2,
+          "stock": 1,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/X/2/X2502-Rojo_1.jpg"
           ]
@@ -11458,7 +11758,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "XGX532-Marron",
@@ -11471,7 +11773,7 @@
         {
           "id": 1,
           "talla": "36",
-          "stock": 1,
+          "stock": 0,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/X/G/XGX532-Marron_0.jpg"
           ]
@@ -11487,7 +11789,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 4,
+          "stock": 3,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/X/G/XGX532-Marron_2.jpg"
           ]
@@ -11534,7 +11836,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "XGX532-Negro",
@@ -11555,7 +11859,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 6,
+          "stock": 5,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/X/G/XGX532-Negro_1.jpg"
           ]
@@ -11563,7 +11867,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 7,
+          "stock": 6,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/X/G/XGX532-Negro_2.jpg"
           ]
@@ -11610,7 +11914,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "YG700-Kaki",
@@ -11686,7 +11992,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "YG700-Negro",
@@ -11707,7 +12015,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 4,
+          "stock": 3,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/Y/G/YG700-Negro_1_1.jpg"
           ]
@@ -11723,7 +12031,7 @@
         {
           "id": 4,
           "talla": "39",
-          "stock": 1,
+          "stock": 0,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/Y/G/YG700-Negro_3_1.jpg"
           ]
@@ -11731,7 +12039,7 @@
         {
           "id": 5,
           "talla": "40",
-          "stock": 2,
+          "stock": 1,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/Y/G/YG700-Negro_4_1.jpg"
           ]
@@ -11739,7 +12047,7 @@
         {
           "id": 6,
           "talla": "41",
-          "stock": 3,
+          "stock": 2,
           "imagenes": [
             "https://via.placeholder.com/500x700?text=Sin+Imagen"
           ]
@@ -11762,7 +12070,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "YY-80-Kaki",
@@ -11838,7 +12148,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "YY-80-Negro",
@@ -11914,7 +12226,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "ZS-95-Camel",
@@ -11927,7 +12241,7 @@
         {
           "id": 1,
           "talla": "36",
-          "stock": 4,
+          "stock": 3,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/Z/S/ZS-95-Camel_0.jpg"
           ]
@@ -11990,7 +12304,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "ZS-95-Negro",
@@ -12066,7 +12382,9 @@
         "40",
         "41"
       ],
-      "destacado": false
+      "destacado": false,
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "1986-16-Camel",
@@ -12142,7 +12460,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "1986-16-Kaki",
@@ -12156,7 +12476,7 @@
         {
           "id": 1,
           "talla": "36",
-          "stock": 6,
+          "stock": 5,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/1/9/1986-16-Kaki_0.jpg"
           ]
@@ -12180,7 +12500,7 @@
         {
           "id": 4,
           "talla": "39",
-          "stock": 18,
+          "stock": 17,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/1/9/1986-16-Kaki_3.jpg"
           ]
@@ -12218,7 +12538,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "1986-16-Negro",
@@ -12240,7 +12562,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 8,
+          "stock": 7,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/1/9/1986-16-Negro_1.jpg"
           ]
@@ -12248,7 +12570,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 9,
+          "stock": 8,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/1/9/1986-16-Negro_2.jpg"
           ]
@@ -12264,7 +12586,7 @@
         {
           "id": 5,
           "talla": "40",
-          "stock": 6,
+          "stock": 5,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/1/9/1986-16-Negro_4.jpg"
           ]
@@ -12294,7 +12616,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "4366-Camel",
@@ -12324,7 +12648,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 6,
+          "stock": 5,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/4/3/4366-Camel_2.jpg"
           ]
@@ -12370,7 +12694,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "4366-Marron",
@@ -12446,7 +12772,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "4366-Negro",
@@ -12476,7 +12804,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 4,
+          "stock": 3,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/4/3/4366-Negro_2.jpg"
           ]
@@ -12522,7 +12850,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "68347-Marron",
@@ -12568,7 +12898,7 @@
         {
           "id": 5,
           "talla": "40",
-          "stock": 1,
+          "stock": 0,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/6/8/68347-Marron_4.jpg"
           ]
@@ -12598,7 +12928,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "68347-Negro",
@@ -12644,7 +12976,7 @@
         {
           "id": 5,
           "talla": "40",
-          "stock": 3,
+          "stock": 2,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/6/8/68347-Negro_4.jpg"
           ]
@@ -12674,7 +13006,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "68347-Taupe",
@@ -12750,7 +13084,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "A-5410-Cafe",
@@ -12772,7 +13108,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 2,
+          "stock": 1,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/A/-/A-5410-Cafe_1.jpg"
           ]
@@ -12788,7 +13124,7 @@
         {
           "id": 4,
           "talla": "39",
-          "stock": 4,
+          "stock": 3,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/A/-/A-5410-Cafe_3.jpg"
           ]
@@ -12826,7 +13162,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "A-5410-Negro",
@@ -12902,7 +13240,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "A9638-Negro",
@@ -12924,7 +13264,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 9,
+          "stock": 8,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/A/9/A9638-Negro_1.jpg"
           ]
@@ -12948,7 +13288,7 @@
         {
           "id": 5,
           "talla": "40",
-          "stock": 2,
+          "stock": 1,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/A/9/A9638-Negro_4.jpg"
           ]
@@ -12978,7 +13318,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "AA-36-Camel",
@@ -13054,7 +13396,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "AA-36-Kaki",
@@ -13130,7 +13474,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "AA-36-Negro",
@@ -13206,7 +13552,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "DD1-Marron",
@@ -13282,7 +13630,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "DD1-Negro",
@@ -13358,7 +13708,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "EV277-Camel",
@@ -13380,7 +13732,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 3,
+          "stock": 4,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/E/V/EV277-Camel_1_1.jpg"
           ]
@@ -13388,7 +13740,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 1,
+          "stock": 0,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/E/V/EV277-Camel_2_1.jpg"
           ]
@@ -13434,7 +13786,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "EV277-Gris",
@@ -13510,7 +13864,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "EV277-Negro",
@@ -13586,7 +13942,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "EV277-Rosa",
@@ -13662,7 +14020,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "FC-15-Oro",
@@ -13738,7 +14098,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "FC-15-Plata",
@@ -13814,7 +14176,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "JL608-Beige",
@@ -13890,7 +14254,9 @@
         "38",
         "39",
         "40"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "JL608-Oro",
@@ -13904,7 +14270,7 @@
         {
           "id": 1,
           "talla": "35",
-          "stock": 3,
+          "stock": 1,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/J/L/JL608-Oro_0_1.jpg"
           ]
@@ -13912,7 +14278,7 @@
         {
           "id": 2,
           "talla": "36",
-          "stock": 9,
+          "stock": 8,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/J/L/JL608-Oro_1_1.jpg"
           ]
@@ -13966,7 +14332,9 @@
         "38",
         "39",
         "40"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "JL895-Beige",
@@ -14042,7 +14410,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "JL895-Negro",
@@ -14118,7 +14488,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "JL895-Oro",
@@ -14194,7 +14566,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "M5060-Beige",
@@ -14279,7 +14653,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "M5060-Lila",
@@ -14364,7 +14740,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "M5060-Negro",
@@ -14426,7 +14804,7 @@
         {
           "id": 7,
           "talla": "41",
-          "stock": 1,
+          "stock": 0,
           "imagenes": [
             "https://via.placeholder.com/500x700?text=Sin+Imagen"
           ]
@@ -14449,7 +14827,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "M5060-Verde",
@@ -14534,7 +14914,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "S-5530-Kaki",
@@ -14580,7 +14962,7 @@
         {
           "id": 5,
           "talla": "40",
-          "stock": 1,
+          "stock": 2,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/S/-/S-5530-Kaki_4.jpg"
           ]
@@ -14610,7 +14992,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "S-5530-Marron",
@@ -14640,7 +15024,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 5,
+          "stock": 4,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/S/-/S-5530-Marron_2.jpg"
           ]
@@ -14686,7 +15070,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "S-5530-Negro",
@@ -14762,7 +15148,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "YG827-Negro",
@@ -14792,7 +15180,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 6,
+          "stock": 5,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/Y/G/YG827-Negro_2.jpg"
           ]
@@ -14838,7 +15226,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "YG827-Plata",
@@ -14914,7 +15304,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "YY-118-Negro",
@@ -14936,7 +15328,7 @@
         {
           "id": 2,
           "talla": "37",
-          "stock": 11,
+          "stock": 10,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/Y/Y/YY-118-Negro_1.jpg"
           ]
@@ -14944,7 +15336,7 @@
         {
           "id": 3,
           "talla": "38",
-          "stock": 16,
+          "stock": 8,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/Y/Y/YY-118-Negro_2.jpg"
           ]
@@ -14960,7 +15352,7 @@
         {
           "id": 5,
           "talla": "40",
-          "stock": 3,
+          "stock": 2,
           "imagenes": [
             "https://dropshippingzapatos.com/pub/media/catalog/product/Y/Y/YY-118-Negro_4.jpg"
           ]
@@ -14968,7 +15360,7 @@
         {
           "id": 6,
           "talla": "41",
-          "stock": 1,
+          "stock": 0,
           "imagenes": [
             "https://via.placeholder.com/500x700?text=Sin+Imagen"
           ]
@@ -14990,7 +15382,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "YZ24-018-Burdeos",
@@ -15066,7 +15460,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "YZ24-018-Camel",
@@ -15142,7 +15538,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "YZ24-018-Kaki",
@@ -15218,7 +15616,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     },
     {
       "sku": "YZ24-018-Negro",
@@ -15294,7 +15694,9 @@
         "39",
         "40",
         "41"
-      ]
+      ],
+      "instagramShares": 0,
+      "facebookShares": 0
     }
   ],
   "counter": 7445

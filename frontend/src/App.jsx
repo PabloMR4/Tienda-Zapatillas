@@ -13,6 +13,7 @@ import UserProfile from './components/UserProfile';
 import Contact from './components/Contact';
 import AdminDescuentos from './components/AdminDescuentos';
 import AdminAnalytics from './components/AdminAnalytics';
+import AdminMarketingRRSS from './components/AdminMarketingRRSS';
 import { useCart } from './context/CartContext';
 import { useAuth } from './context/AuthContext';
 
@@ -24,6 +25,7 @@ function App() {
   const [showContact, setShowContact] = useState(false);
   const [showAdminDescuentos, setShowAdminDescuentos] = useState(false);
   const [showAdminAnalytics, setShowAdminAnalytics] = useState(false);
+  const [showAdminMarketingRRSS, setShowAdminMarketingRRSS] = useState(false);
   const { setIsCartOpen } = useCart();
   const { isAuthenticated } = useAuth();
 
@@ -84,6 +86,14 @@ function App() {
     setShowAdminAnalytics(false);
   };
 
+  const handleOpenAdminMarketingRRSS = () => {
+    setShowAdminMarketingRRSS(true);
+  };
+
+  const handleCloseAdminMarketingRRSS = () => {
+    setShowAdminMarketingRRSS(false);
+  };
+
   return (
     <div className="app">
       <HalloweenDecorations />
@@ -93,6 +103,7 @@ function App() {
         onOpenContact={handleOpenContact}
         onOpenAdminDescuentos={handleOpenAdminDescuentos}
         onOpenAdminAnalytics={handleOpenAdminAnalytics}
+        onOpenAdminMarketingRRSS={handleOpenAdminMarketingRRSS}
       />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -116,6 +127,7 @@ function App() {
       {showContact && <Contact onClose={handleCloseContact} />}
       {showAdminDescuentos && <AdminDescuentos onClose={handleCloseAdminDescuentos} />}
       {showAdminAnalytics && <AdminAnalytics onClose={handleCloseAdminAnalytics} />}
+      {showAdminMarketingRRSS && <AdminMarketingRRSS onClose={handleCloseAdminMarketingRRSS} />}
       <Footer />
     </div>
   );
