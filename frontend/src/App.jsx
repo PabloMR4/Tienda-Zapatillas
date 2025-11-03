@@ -3,10 +3,10 @@ import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import CategoryPage from './components/CategoryPage';
+import VansCustomization from './components/VansCustomization';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
 import Footer from './components/Footer';
-import HalloweenDecorations from './components/HalloweenDecorations';
 import Login from './components/Login';
 import Register from './components/Register';
 import UserProfile from './components/UserProfile';
@@ -96,7 +96,6 @@ function App() {
 
   return (
     <div className="app">
-      <HalloweenDecorations />
       <Navbar
         onOpenLogin={handleOpenLogin}
         onOpenProfile={handleOpenProfile}
@@ -108,6 +107,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/categoria/:categoria" element={<CategoryPage />} />
+        <Route path="/vans-custom" element={<VansCustomization />} />
       </Routes>
       <Cart onCheckout={handleCheckout} />
       {showCheckout && <Checkout onClose={handleCloseCheckout} />}

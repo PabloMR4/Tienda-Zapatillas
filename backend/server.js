@@ -1216,6 +1216,87 @@ app.get('/api/stripe/config', (req, res) => {
   });
 });
 
+// Webhook de Stripe para confirmar pagos
+// IMPORTANTE: Este endpoint debe recibir el body raw, no parseado como JSON
+app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async (req, res) => {
+  const sig = req.headers['stripe-signature'];
+  const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
+
+  // Si no hay webhook secret configurado, registrar warning pero continuar
+  if (!webhookSecret) {
+    console.warn('⚠️  WARNING: STRIPE_WEBHOOK_SECRET no está configurado. Los webhooks no están verificados.');
+    console.warn('   Configura el webhook secret en Stripe Dashboard → Developers → Webhooks');
+    return res.status(400).send('Webhook secret no configurado');
+  }
+
+  let event;
+
+  try {
+    // Verificar la firma del webhook para seguridad
+    event = stripe.webhooks.constructEvent(req.body, sig, webhookSecret);
+  } catch (err) {
+    console.error('❌ Error verificando webhook signature:', err.message);
+    return res.status(400).send(`Webhook Error: ${err.message}`);
+  }
+
+  // Manejar el evento
+  try {
+    switch (event.type) {
+      case 'payment_intent.succeeded':
+        const paymentIntent = event.data.object;
+        console.log('✅ Pago confirmado:', paymentIntent.id, '- Monto:', paymentIntent.amount / 100, paymentIntent.currency.toUpperCase());
+
+        // Buscar el pedido asociado con este payment intent
+        const pedido = pedidos.find(p => p.paymentIntentId === paymentIntent.id);
+        if (pedido) {
+          pedido.pagado = true;
+          pedido.estadoPago = 'succeeded';
+          pedido.fechaPago = new Date().toISOString();
+          guardarDatos();
+          console.log('✅ Pedido #' + pedido.id + ' marcado como pagado');
+        }
+        break;
+
+      case 'payment_intent.payment_failed':
+        const failedPayment = event.data.object;
+        console.log('❌ Pago fallido:', failedPayment.id, '- Error:', failedPayment.last_payment_error?.message);
+
+        // Buscar y marcar el pedido como fallido
+        const pedidoFallido = pedidos.find(p => p.paymentIntentId === failedPayment.id);
+        if (pedidoFallido) {
+          pedidoFallido.pagado = false;
+          pedidoFallido.estadoPago = 'failed';
+          pedidoFallido.errorPago = failedPayment.last_payment_error?.message;
+          guardarDatos();
+          console.log('❌ Pedido #' + pedidoFallido.id + ' marcado como fallido');
+        }
+        break;
+
+      case 'payment_intent.canceled':
+        const canceledPayment = event.data.object;
+        console.log('🔴 Pago cancelado:', canceledPayment.id);
+
+        // Marcar pedido como cancelado
+        const pedidoCancelado = pedidos.find(p => p.paymentIntentId === canceledPayment.id);
+        if (pedidoCancelado) {
+          pedidoCancelado.estadoPago = 'canceled';
+          pedidoCancelado.estado = 'Cancelado';
+          guardarDatos();
+          console.log('🔴 Pedido #' + pedidoCancelado.id + ' cancelado');
+        }
+        break;
+
+      default:
+        console.log(`Evento de Stripe no manejado: ${event.type}`);
+    }
+
+    res.json({ received: true });
+  } catch (err) {
+    console.error('Error procesando evento de webhook:', err);
+    res.status(500).json({ error: 'Error procesando webhook' });
+  }
+});
+
 // Rutas de administración
 
 // Página de login
@@ -1383,24 +1464,42 @@ app.post('/api/pedidos', (req, res) => {
     }
   });
 
+  // Buscar cliente por email si no está autenticado
+  let clienteIdAsociado = req.session.clienteId || null;
+
+  // Si no está autenticado pero proporcionó un email, buscar si existe un usuario con ese email
+  if (!clienteIdAsociado && cliente && cliente.email) {
+    const usuarioExistente = usuarios.find(u => u.email.toLowerCase() === cliente.email.toLowerCase());
+    if (usuarioExistente) {
+      clienteIdAsociado = usuarioExistente.id;
+    }
+  }
+
   const nuevoPedido = {
     id: pedidoIdCounter++,
     items,
     total,
     cliente,
-    clienteId: req.session.clienteId || null, // Asociar con cliente autenticado si existe
+    clienteId: clienteIdAsociado, // Asociar con cliente autenticado o encontrado por email
     paymentIntentId: paymentIntentId || null, // ID del pago de Stripe
     fecha: new Date().toISOString(),
     estado: 'Nuevo Pedido',
-    descuentosAplicados: Array.from(descuentosUsados)
+    descuentosAplicados: Array.from(descuentosUsados),
+    // Campos de estado de pago
+    pagado: false, // Se marcará como true cuando el webhook confirme el pago
+    estadoPago: 'pending', // pending, succeeded, failed, canceled
+    fechaPago: null
   };
 
   pedidos.push(nuevoPedido);
 
-  // Si el cliente está autenticado, agregar el pedido a su lista
-  if (req.session.clienteId) {
-    const usuario = usuarios.find(u => u.id === req.session.clienteId);
+  // Si hay un cliente asociado (autenticado o encontrado por email), agregar el pedido a su lista
+  if (clienteIdAsociado) {
+    const usuario = usuarios.find(u => u.id === clienteIdAsociado);
     if (usuario) {
+      if (!usuario.pedidos) {
+        usuario.pedidos = [];
+      }
       usuario.pedidos.push(nuevoPedido.id);
     }
   }
@@ -3082,16 +3181,36 @@ app.post('/api/instagram/publicar', requireAuth, async (req, res) => {
     console.error('❌ Error publicando en redes sociales:', error.response?.data || error.message);
 
     let errorMsg = 'Error al publicar en redes sociales';
+    let statusCode = 500;
 
+    // Detectar errores específicos de Instagram
     if (error.response?.data?.error?.message) {
-      errorMsg = error.response.data.error.message;
+      const instagramError = error.response.data.error.message;
+      errorMsg = instagramError;
+
+      // Detectar rate limiting
+      if (instagramError.includes('too many actions') || instagramError.includes('rate limit')) {
+        errorMsg = 'Instagram está limitando las publicaciones. Espera unos minutos antes de intentar nuevamente.';
+        statusCode = 429;
+      }
+      // Detectar errores de permisos
+      else if (instagramError.includes('permission') || instagramError.includes('scope')) {
+        errorMsg = 'No tienes permisos suficientes para publicar en Instagram. Verifica tus tokens.';
+        statusCode = 403;
+      }
+      // Detectar errores de token
+      else if (instagramError.includes('token') || instagramError.includes('expired')) {
+        errorMsg = 'El token de Instagram ha expirado. Necesitas renovarlo.';
+        statusCode = 401;
+      }
     } else if (error.message) {
       errorMsg = error.message;
     }
 
-    res.status(500).json({
+    res.status(statusCode).json({
       error: errorMsg,
-      detalles: error.response?.data?.error || {}
+      detalles: error.response?.data?.error || {},
+      errorCode: error.response?.data?.error?.code || null
     });
   }
 });

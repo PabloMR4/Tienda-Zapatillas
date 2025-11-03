@@ -44,3 +44,7 @@ dist-ssr/
 # Temporary files
 *.tmp
 *.temp
+
+# Temporary uploads
+backend/uploads/temp_*.jpg
+backend/uploads/temp_*.png

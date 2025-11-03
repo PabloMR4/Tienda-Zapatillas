@@ -40,18 +40,6 @@ const Footer = () => {
               <span className="footer-icon">📧</span>
               <a href="mailto:info@shoelandia.com">info@shoelandia.com</a>
             </li>
-            <li>
-              <span className="footer-icon">📱</span>
-              <a href="tel:+34900123456">+34 900 123 456</a>
-            </li>
-            <li>
-              <span className="footer-icon">📍</span>
-              <span>Madrid, España</span>
-            </li>
-            <li>
-              <span className="footer-icon">🕐</span>
-              <span>Lun - Vie: 9:00 - 20:00</span>
-            </li>
           </ul>
         </div>
 
@@ -98,12 +86,6 @@ const Footer = () => {
           <span className="badge">✅ Envío Rápido</span>
           <span className="badge">🔒 Compra Segura</span>
         </div>
-      </div>
-
-      {/* Decoración Halloween especial en el footer */}
-      <div className="footer-halloween-decoration">
-        <span className="footer-pumpkin">🎃</span>
-        <span className="footer-bat">🦇</span>
       </div>
     </footer>
   );

@@ -77,20 +77,6 @@ const Contact = ({ onClose }) => {
               <p>info@shoelandia.es</p>
             </div>
           </div>
-          <div className="contact-info-item">
-            <span className="contact-icon">📞</span>
-            <div>
-              <strong>Teléfono</strong>
-              <p>+34 912 345 678</p>
-            </div>
-          </div>
-          <div className="contact-info-item">
-            <span className="contact-icon">📍</span>
-            <div>
-              <strong>Dirección</strong>
-              <p>Calle Gran Vía, 28, Madrid</p>
-            </div>
-          </div>
         </div>
 
         <form onSubmit={handleSubmit} className="contact-form">
@@ -158,12 +144,6 @@ const Contact = ({ onClose }) => {
             {loading ? 'Enviando...' : 'Enviar Mensaje'}
           </button>
         </form>
-
-        <div className="contact-hours">
-          <strong>Horario de atención:</strong>
-          <p>Lunes a Viernes: 9:00 - 20:00</p>
-          <p>Sábados: 10:00 - 14:00</p>
-        </div>
       </div>
     </div>
   );

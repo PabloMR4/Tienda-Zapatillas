@@ -56,10 +56,19 @@ const AdminMarketingRRSS = ({ onClose }) => {
 
     try {
       const resultados = [];
+      const totalProductos = productosSeleccionados.length;
+      let productoActual = 0;
 
       for (const productoId of productosSeleccionados) {
+        productoActual++;
         const producto = productos.find((p) => p.id === productoId);
         if (!producto) continue;
+
+        // Actualizar mensaje de progreso
+        setMensaje({
+          texto: `📤 Publicando ${productoActual} de ${totalProductos}: ${producto.nombre}...`,
+          tipo: 'info'
+        });
 
         // Recopilar todas las imágenes del producto
         const imagenesProducto = [];
@@ -182,6 +191,15 @@ Web: https://www.Shoelandia.es
             exito: false,
             error: err.message
           });
+        }
+
+        // Esperar entre publicaciones para evitar rate limiting (40 segundos entre productos)
+        if (productoActual < totalProductos) {
+          setMensaje({
+            texto: `⏳ Esperando 40 segundos antes de publicar el siguiente producto... (${productoActual}/${totalProductos} completados)`,
+            tipo: 'info'
+          });
+          await new Promise(resolve => setTimeout(resolve, 40000));
         }
       }
 

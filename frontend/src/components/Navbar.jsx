@@ -176,6 +176,7 @@ const Navbar = ({ onOpenLogin, onOpenProfile, onOpenContact, onOpenAdminDescuent
             </div>
 
             <a href="#about" onClick={(e) => { e.preventDefault(); handleNavClick('about'); }}>Sobre Nosotros</a>
+            <a href="/vans-custom" onClick={(e) => { e.preventDefault(); navigate('/vans-custom'); }} className="vans-custom-link">Personaliza tus Vans</a>
             <a href="#contact" onClick={(e) => { e.preventDefault(); onOpenContact(); }}>Contacto</a>
             {isAuthenticated && user?.rol === 'admin' && (
               <div

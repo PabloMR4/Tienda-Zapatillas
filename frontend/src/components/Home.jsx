@@ -157,6 +157,55 @@ const Home = () => {
       {/* Sección de Moda Ética */}
       <EthicalBanner />
 
+      {/* Sección de Personalización de Vans */}
+      <section className="vans-promo-section">
+        <div className="vans-promo-container">
+          <div className="vans-promo-content">
+            <span className="vans-promo-tag">Servicio Premium</span>
+            <h2 className="vans-promo-title">Personalización Exclusiva de Vans</h2>
+            <p className="vans-promo-description">
+              Convierte tus ideas en realidad con nuestro servicio de personalización premium.
+              Diseña tus Vans únicas con materiales de alta calidad, colores exclusivos y
+              detalles artesanales. Cada par es una obra de arte creada especialmente para ti.
+            </p>
+            <div className="vans-promo-features">
+              <div className="vans-promo-feature-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                  <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                <span>Materiales Premium</span>
+              </div>
+              <div className="vans-promo-feature-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="3"/>
+                  <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/>
+                </svg>
+                <span>Diseño 100% Personalizado</span>
+              </div>
+              <div className="vans-promo-feature-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                </svg>
+                <span>Confección Artesanal</span>
+              </div>
+            </div>
+            <button className="vans-promo-btn" onClick={() => navigate('/vans-custom')}>
+              Diseña tus Vans
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
+          <div className="vans-promo-image">
+            <img
+              src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=800&auto=format&fit=crop&q=80"
+              alt="Vans Personalizadas"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Modal de Producto */}
       {selectedProduct && (
         <ProductModal

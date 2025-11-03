@@ -88,6 +88,12 @@
   border: 1px solid #f5c6cb;
 }
 
+.admin-marketing-mensaje.info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
 .admin-marketing-controles {
   padding: 20px 30px;
   border-bottom: 2px solid #f0f0f0;
